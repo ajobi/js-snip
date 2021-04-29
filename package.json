@@ -4,8 +4,19 @@
   "repository": "https://github.com/ajobi/js-snip.git",
   "author": "Andrej Bilec <andrej.bilec@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "rollup": "^2.46.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-uglify": "^6.0.4",
     "typescript": "^4.2.4"
   }
 }
