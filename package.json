@@ -5,7 +5,8 @@
   "author": "Andrej Bilec <andrej.bilec@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test:run": "cypress run"
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
