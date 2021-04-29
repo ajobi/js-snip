@@ -3,5 +3,9 @@
   "version": "1.0.0-alpha.0",
   "repository": "https://github.com/ajobi/js-snip.git",
   "author": "Andrej Bilec <andrej.bilec@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^2.46.0",
+    "typescript": "^4.2.4"
+  }
 }
