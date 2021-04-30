@@ -1,19 +1,19 @@
-import { elementLines } from "../utils/elementLines";
+import { getLines } from "../utils/getLines";
 import { SnipMethod } from "./interface";
 
 const defaultSeparators = ['. ', ', ', ' ', '']
 const defaultEllipsis = '.\u200A.\u200A.'
 
-export const snipByJS: SnipMethod = (el, options) => {
+export const snipByJS: SnipMethod = (element, options) => {
   const { fullText, maxLines, ellipsis = defaultEllipsis, separators = defaultSeparators } = options
 
-  el.textContent = fullText
-  el.style.display = null
-  el.style.webkitLineClamp = null
-  el.style.webkitBoxOrient = null
-  el.style.overflow = null
+  element.textContent = fullText
+  element.style.display = null
+  element.style.webkitLineClamp = null
+  element.style.webkitBoxOrient = null
+  element.style.overflow = null
 
-  if (maxLines <= 0 || elementLines(el) <= maxLines) {
+  if (maxLines <= 0 || getLines(element) <= maxLines) {
     return
   }
 
@@ -24,9 +24,9 @@ export const snipByJS: SnipMethod = (el, options) => {
 
   separators.forEach(separator => {
     for (const chunk of snipProgress.unprocessed.split(separator)) {
-      el.textContent = `${snipProgress.processed}${chunk}${separator}${ellipsis}`
+      element.textContent = `${snipProgress.processed}${chunk}${separator}${ellipsis}`
 
-      if (elementLines(el) > maxLines) {
+      if (getLines(element) > maxLines) {
         snipProgress.unprocessed = chunk
         break
       }
@@ -35,5 +35,5 @@ export const snipByJS: SnipMethod = (el, options) => {
     }
   })
 
-  el.textContent = `${snipProgress.processed.trim()}${ellipsis}`
+  element.textContent = `${snipProgress.processed.trim()}${ellipsis}`
 }

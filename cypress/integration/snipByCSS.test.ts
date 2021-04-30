@@ -1,4 +1,4 @@
-import { snipByCSS, elementLines } from "../../src";
+import { snipByCSS, getLines } from "../../src";
 
 describe('snipByCSS', () => {
   beforeEach(() => {
@@ -8,22 +8,22 @@ describe('snipByCSS', () => {
   it('Snips on negative max lines', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      const oldLines = elementLines(paragraph)
+      const oldLines = getLines(paragraph)
 
       snipByCSS(paragraph, { fullText: paragraph.textContent, maxLines: -1 })
 
-      expect(elementLines(paragraph)).to.equal(oldLines)
+      expect(getLines(paragraph)).to.equal(oldLines)
     })
   })
 
   it('Snips on zero max lines', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      const oldLines = elementLines(paragraph)
+      const oldLines = getLines(paragraph)
 
       snipByCSS(paragraph, { fullText: paragraph.textContent, maxLines: 0 })
 
-      expect(elementLines(paragraph)).to.equal(oldLines)
+      expect(getLines(paragraph)).to.equal(oldLines)
     })
   })
 
@@ -32,7 +32,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       snipByCSS(paragraph, { fullText: paragraph.textContent, maxLines: 1 })
 
-      expect(elementLines(paragraph)).to.equal(1)
+      expect(getLines(paragraph)).to.equal(1)
     })
   })
 
@@ -41,18 +41,18 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       snipByCSS(paragraph, { fullText: paragraph.textContent, maxLines: 2 })
 
-      expect(elementLines(paragraph)).to.equal(2)
+      expect(getLines(paragraph)).to.equal(2)
     })
   })
 
   it('Does not snip on 10 max lines', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      const oldLines = elementLines(paragraph)
+      const oldLines = getLines(paragraph)
 
       snipByCSS(paragraph, { fullText: paragraph.textContent, maxLines: 10 })
 
-      expect(elementLines(paragraph)).to.equal(oldLines)
+      expect(getLines(paragraph)).to.equal(oldLines)
     })
   })
 

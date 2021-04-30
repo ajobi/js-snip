@@ -1,4 +1,4 @@
-import { elementLines } from "../../src";
+import { getLines } from "../../src";
 
 describe('elementLines', () => {
   describe('with implicit line height', () => {
@@ -8,25 +8,25 @@ describe('elementLines', () => {
 
     it('returns 0 on empty text', () => {
       cy.get('[data-cy=paragraph1]').then(($paragraph) => {
-        expect(elementLines($paragraph.get()[0])).to.equal(0)
+        expect(getLines($paragraph.get()[0])).to.equal(0)
       })
     })
 
     it('returns correct values on wrapping texts', () => {
       cy.get('[data-cy=paragraph2]').then(($paragraph) => {
-        expect(elementLines($paragraph.get()[0])).to.equal(1)
+        expect(getLines($paragraph.get()[0])).to.equal(1)
       })
 
       cy.get('[data-cy=paragraph3]').then(($paragraph) => {
-        expect(elementLines($paragraph.get()[0])).to.equal(2)
+        expect(getLines($paragraph.get()[0])).to.equal(2)
       })
 
       cy.get('[data-cy=paragraph4]').then(($paragraph) => {
-        expect(elementLines($paragraph.get()[0])).to.equal(3)
+        expect(getLines($paragraph.get()[0])).to.equal(3)
       })
 
       cy.get('[data-cy=paragraph5]').then(($paragraph) => {
-        expect(elementLines($paragraph.get()[0])).to.equal(4)
+        expect(getLines($paragraph.get()[0])).to.equal(4)
       })
     })
   })
@@ -40,25 +40,25 @@ describe('elementLines', () => {
 
       it('returns 0 on empty text', () => {
         cy.get('[data-cy=paragraph1]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(0)
+          expect(getLines($paragraph.get()[0])).to.equal(0)
         })
       })
 
       it('returns correct values on wrapping texts', () => {
         cy.get('[data-cy=paragraph2]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(1)
+          expect(getLines($paragraph.get()[0])).to.equal(1)
         })
 
         cy.get('[data-cy=paragraph3]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(2)
+          expect(getLines($paragraph.get()[0])).to.equal(2)
         })
 
         cy.get('[data-cy=paragraph4]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(3)
+          expect(getLines($paragraph.get()[0])).to.equal(3)
         })
 
         cy.get('[data-cy=paragraph5]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(4)
+          expect(getLines($paragraph.get()[0])).to.equal(4)
         })
       })
     })
@@ -71,25 +71,25 @@ describe('elementLines', () => {
 
       it('returns 0 on empty text', () => {
         cy.get('[data-cy=paragraph1]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(0)
+          expect(getLines($paragraph.get()[0])).to.equal(0)
         })
       })
 
       it('returns correct values on wrapping texts', () => {
         cy.get('[data-cy=paragraph2]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(1)
+          expect(getLines($paragraph.get()[0])).to.equal(1)
         })
 
         cy.get('[data-cy=paragraph3]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(2)
+          expect(getLines($paragraph.get()[0])).to.equal(2)
         })
 
         cy.get('[data-cy=paragraph4]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(3)
+          expect(getLines($paragraph.get()[0])).to.equal(3)
         })
 
         cy.get('[data-cy=paragraph5]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(4)
+          expect(getLines($paragraph.get()[0])).to.equal(4)
         })
       })
     })
@@ -102,23 +102,23 @@ describe('elementLines', () => {
 
       it('returns 0 on each text', () => {
         cy.get('[data-cy=paragraph1]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(0)
+          expect(getLines($paragraph.get()[0])).to.equal(0)
         })
 
         cy.get('[data-cy=paragraph2]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(0)
+          expect(getLines($paragraph.get()[0])).to.equal(0)
         })
 
         cy.get('[data-cy=paragraph3]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(0)
+          expect(getLines($paragraph.get()[0])).to.equal(0)
         })
 
         cy.get('[data-cy=paragraph4]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(0)
+          expect(getLines($paragraph.get()[0])).to.equal(0)
         })
 
         cy.get('[data-cy=paragraph5]').then(($paragraph) => {
-          expect(elementLines($paragraph.get()[0])).to.equal(0)
+          expect(getLines($paragraph.get()[0])).to.equal(0)
         })
       })
     })
