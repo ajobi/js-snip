@@ -1,6 +1,7 @@
 {
   "name": "js-snip",
   "version": "1.0.0-alpha.1",
+  "description": "Universal JavaScript library for clamping HTML text elements.",
   "author": "Andrej Bilec <andrej.bilec@gmail.com>",
   "license": "MIT",
   "scripts": {
