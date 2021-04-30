@@ -1,8 +1,11 @@
 import { elementLines } from "../utils/elementLines";
+import { SnipMethod } from "./interface";
 
-export const snipByJS = (state, el) => {
-  const { fullText, maxLines } = state.elementMap.get(el)
-  const { ellipsis, separators } = state.options
+const defaultSeparators = ['. ', ', ', ' ', '']
+const defaultEllipsis = '.\u200A.\u200A.'
+
+export const snipByJS: SnipMethod = (el, options) => {
+  const { fullText, maxLines, ellipsis = defaultEllipsis, separators = defaultSeparators } = options
 
   el.textContent = fullText
   el.style.display = null
