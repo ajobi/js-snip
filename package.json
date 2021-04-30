@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
+    "prepare": "yarn build",
     "test:run": "cypress run"
   },
   "main": "dist/index.js",
