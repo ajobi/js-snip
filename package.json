@@ -6,8 +6,10 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "prepare": "yarn build",
-    "test:run": "cypress run"
+    "lint": "eslint './**/*.ts'",
+    "lint:fix": "eslint './**/*ts' --fix",
+    "test:run": "cypress run",
+    "prepare": "yarn build"
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -16,7 +18,10 @@
     "dist"
   ],
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "cypress": "^7.2.0",
+    "eslint": "^7.25.0",
     "rollup": "^2.46.0",
     "rollup-plugin-dts": "^3.0.1",
     "rollup-plugin-typescript2": "^0.30.0",
