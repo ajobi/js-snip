@@ -21,5 +21,15 @@
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-uglify": "^6.0.4",
     "typescript": "^4.2.4"
-  }
+  },
+  "keywords": [
+    "clamp",
+    "ellipsis",
+    "snip",
+    "snip-text",
+    "cut-text",
+    "clamp-text",
+    "truncate-text",
+    "multiline-text"
+  ]
 }
