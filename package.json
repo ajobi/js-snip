@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "lint": "eslint './**/*.ts'",
-    "lint:fix": "eslint './**/*ts' --fix",
+    "lint": "eslint './**/*.{js,ts}'",
+    "lint:fix": "eslint './**/*.{js,ts}' --fix",
     "test:run": "cypress run",
     "prepare": "yarn build"
   },
