@@ -9,6 +9,7 @@
     "lint": "eslint './**/*.{js,ts}'",
     "lint:fix": "eslint './**/*.{js,ts}' --fix",
     "test:run": "yarn prepare && cypress run",
+    "test": "yarn test:run",
     "prepare": "yarn build"
   },
   "main": "dist/index.js",
