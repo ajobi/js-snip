@@ -8,7 +8,7 @@
     "build": "rollup -c",
     "lint": "eslint './**/*.{js,ts}'",
     "lint:fix": "eslint './**/*.{js,ts}' --fix",
-    "test:run": "cypress run",
+    "test:run": "yarn prepare && cypress run",
     "prepare": "yarn build"
   },
   "main": "dist/index.js",

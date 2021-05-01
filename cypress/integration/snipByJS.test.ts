@@ -1,4 +1,4 @@
-import { snipByJS } from "../../src"
+import { snipByJS } from "../../dist"
 
 describe('snipByJS', () => {
   beforeEach(() => {
