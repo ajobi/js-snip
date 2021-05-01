@@ -3,18 +3,19 @@ module.exports = {
     browser: true,
     node: true,
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: "module"
+    sourceType: 'module'
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ['@typescript-eslint'],
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   rules: {
-    "object-curly-spacing": ["error", "always"],
-    semi: ["error", "never"]
+    'object-curly-spacing': ['error', 'always'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'never']
   }
 }

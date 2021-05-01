@@ -1,4 +1,4 @@
-import { getLines } from "../../../dist"
+import { getLines } from '../../../dist'
 
 describe('getLinesLines', () => {
   describe('with implicit line height', () => {
