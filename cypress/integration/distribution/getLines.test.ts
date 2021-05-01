@@ -1,6 +1,6 @@
-import { getLines } from "../../dist"
+import { getLines } from "../../../dist"
 
-describe('elementLines', () => {
+describe('getLinesLines', () => {
   describe('with implicit line height', () => {
     beforeEach(() => {
       cy.visit('./cypress/lines.test.html')
