@@ -1,5 +1,4 @@
-import typescript from "rollup-plugin-typescript2"
-import { uglify } from "rollup-plugin-uglify"
+import esbuild from 'rollup-plugin-esbuild'
 import dts from "rollup-plugin-dts"
 
 const input = "src/index.ts"
@@ -12,7 +11,7 @@ export default [
       file: pkg.module,
       format: "esm",
     },
-    plugins: [typescript({ typescript: require("typescript") }), uglify()],
+    plugins: [esbuild({ minify: true })],
   },
   {
     input,
@@ -21,7 +20,7 @@ export default [
       format: "umd",
       name: 'ReactSnip'
     },
-    plugins: [typescript({ typescript: require("typescript") }), uglify()],
+    plugins: [esbuild({ minify: true })],
   },
   {
     input,
