@@ -18,7 +18,7 @@ export default [
     output: {
       file: pkg.main,
       format: 'umd',
-      name: 'ReactSnip'
+      name: 'JsSnip'
     },
     plugins: [esbuild({ minify: true })],
   },
