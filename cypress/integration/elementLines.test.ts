@@ -1,4 +1,4 @@
-import { getLines } from "../../src";
+import { getLines } from "../../src"
 
 describe('elementLines', () => {
   describe('with implicit line height', () => {

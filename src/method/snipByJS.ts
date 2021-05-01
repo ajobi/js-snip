@@ -1,5 +1,5 @@
-import { getLines } from "../utils/getLines";
-import { SnipMethod } from "./interface";
+import { getLines } from "../utils/getLines"
+import { SnipMethod } from "./interface"
 
 const defaultSeparators = ['. ', ', ', ' ', '']
 const defaultEllipsis = '.\u200A.\u200A.'

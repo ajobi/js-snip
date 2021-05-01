@@ -1,4 +1,4 @@
-import { snipByCSS, getLines } from "../../src";
+import { snipByCSS, getLines } from "../../src"
 
 describe('snipByCSS', () => {
   beforeEach(() => {
