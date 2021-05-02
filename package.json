@@ -12,7 +12,7 @@
     "test:run": "yarn prepare && yarn test:instrument && cypress run",
     "test:instrument": "nyc instrument dist instrumented",
     "test:coverage": "nyc report --reporter=text --reporter=text-summary",
-    "test": "yarn test:run",
+    "test": "yarn test:run && yarn test:coverage",
     "prepare": "yarn build"
   },
   "main": "dist/index.js",
