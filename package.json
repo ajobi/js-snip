@@ -8,8 +8,10 @@
     "build": "rollup -c",
     "lint": "eslint './**/*.{js,ts}'",
     "lint:fix": "eslint './**/*.{js,ts}' --fix",
-    "test:open": "yarn prepare && cypress open",
-    "test:run": "yarn prepare && cypress run",
+    "test:open": "yarn prepare && yarn test:instrument && cypress open",
+    "test:run": "yarn prepare && yarn test:instrument && cypress run",
+    "test:instrument": "npx nyc instrument dist instrumented",
+    "test:coverage": "npx nyc report --reporter=text --reporter=text-summary",
     "test": "yarn test:run",
     "prepare": "yarn build"
   },
