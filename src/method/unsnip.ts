@@ -1,6 +1,11 @@
 import { Unsnip } from './interface'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const unsnip: Unsnip = (element) => {
-  // TODO: implement feature
+  element.textContent = element.dataset.fullText
+  element.removeAttribute('data-full-text')
+
+  element.style.display = ''
+  element.style.webkitLineClamp = ''
+  element.style.webkitBoxOrient = ''
+  element.style.overflow = ''
 }

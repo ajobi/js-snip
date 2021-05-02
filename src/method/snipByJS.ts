@@ -11,10 +11,10 @@ export const snipByJS: Snip = (element, options) => {
   element.dataset.fullText = fullText
 
   element.textContent = fullText
-  element.style.display = null
-  element.style.webkitLineClamp = null
-  element.style.webkitBoxOrient = null
-  element.style.overflow = null
+  element.style.display = ''
+  element.style.webkitLineClamp = ''
+  element.style.webkitBoxOrient = ''
+  element.style.overflow = ''
 
   if (maxLines <= 0 || getLines(element) <= maxLines) {
     return
