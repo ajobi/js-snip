@@ -61,6 +61,9 @@ describe('snipByJS', () => {
         expect(paragraph.style.color).to.equal(originalColor)
       })
     })
+
+    // TODO: Custom ellipsis test
+    // TODO: Custom separators test
   })
 
   describe('Complex Scenarios', () => {
