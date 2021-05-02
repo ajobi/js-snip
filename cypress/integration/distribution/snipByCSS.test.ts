@@ -84,5 +84,21 @@ describe('snipByCSS', () => {
         expect(getLines(paragraph)).to.equal(1)
       })
     })
+
+    it('Is able to change text ', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+
+        snipByCSS(paragraph, { maxLines: 2 })
+        expect(getLines(paragraph)).to.equal(2)
+
+        const newText = 'This is some custom text that is only useful for this test case. The text should now be visible on the page and properly clamped to exactly two lines. Not more, not less. This text is completely useless for the world.'
+        paragraph.innerText = newText
+
+        snipByCSS(paragraph, { maxLines: 2 })
+        expect(getLines(paragraph)).to.equal(2)
+        expect(paragraph.dataset.fullText).to.equal(newText)
+      })
+    })
   })
 })
