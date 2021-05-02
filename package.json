@@ -10,8 +10,8 @@
     "lint:fix": "eslint './**/*.{js,ts}' --fix",
     "test:open": "yarn prepare && yarn test:instrument && cypress open",
     "test:run": "yarn prepare && yarn test:instrument && cypress run",
-    "test:instrument": "npx nyc instrument dist instrumented",
-    "test:coverage": "npx nyc report --reporter=text --reporter=text-summary",
+    "test:instrument": "nyc instrument dist instrumented",
+    "test:coverage": "nyc report --reporter=text --reporter=text-summary",
     "test": "yarn test:run",
     "prepare": "yarn build"
   },
