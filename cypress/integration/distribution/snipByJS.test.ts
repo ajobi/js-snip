@@ -78,5 +78,9 @@ describe('snipByJS', () => {
         expect(paragraph.innerText).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earu.\u200A.\u200A.')
       })
     })
+
+    it('Is able to change text ', () => {
+      // TODO: Implement the functionality
+    })
   })
 })
