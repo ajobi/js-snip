@@ -1,6 +1,6 @@
 export interface SnipOptions  {
-  fullText: string
   maxLines: number
+  fullText?: string
   ellipsis?: string
   separators?: string[]
 }

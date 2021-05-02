@@ -7,7 +7,7 @@ const defaultEllipsis = '.\u200A.\u200A.'
 export const snipByJS: SnipMethod = (element, options) => {
   const { fullText, maxLines, ellipsis = defaultEllipsis, separators = defaultSeparators } = options
 
-  element.textContent = fullText
+  element.textContent = fullText ?? element.textContent
   element.style.display = null
   element.style.webkitLineClamp = null
   element.style.webkitBoxOrient = null
@@ -18,7 +18,7 @@ export const snipByJS: SnipMethod = (element, options) => {
   }
 
   const snipProgress = {
-    unprocessed: fullText,
+    unprocessed: fullText ?? element.textContent,
     processed: ''
   }
 

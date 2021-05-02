@@ -60,4 +60,13 @@ describe('snipByJS', () => {
       expect(paragraph.style.color).to.equal(originalColor)
     })
   })
+
+  it('Infers the full text if not passed', () => {
+    cy.get('[data-cy=paragraph]').then(($paragraph) => {
+      const paragraph = $paragraph.get()[0]
+      snipByJS(paragraph, { maxLines: 2 })
+
+      expect(paragraph.innerText).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earum eius error expedita fuga illum iste iure minima nobis, odio praesentium quae quas ullam ve.\u200A.\u200A.')
+    })
+  })
 })

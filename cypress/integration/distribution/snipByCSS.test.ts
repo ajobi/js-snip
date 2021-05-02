@@ -66,4 +66,13 @@ describe('snipByCSS', () => {
       expect(paragraph.style.color).to.equal(originalColor)
     })
   })
+
+  it('Infers the full text if not passed', () => {
+    cy.get('[data-cy=paragraph]').then(($paragraph) => {
+      const paragraph = $paragraph.get()[0]
+      snipByCSS(paragraph, { maxLines: 2 })
+
+      expect(getLines(paragraph)).to.equal(2)
+    })
+  })
 })

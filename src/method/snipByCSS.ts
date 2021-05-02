@@ -4,7 +4,7 @@ import { SnipMethod } from './interface'
 export const snipByCSS: SnipMethod = (element, options) => {
   const { fullText, maxLines } = options
 
-  element.textContent = fullText
+  element.textContent = fullText ?? element.textContent
   element.style.display = '-webkit-box'
   element.style.webkitLineClamp = maxLines.toString()
   element.style.webkitBoxOrient = 'vertical'
