@@ -5,65 +5,84 @@ describe('snipByCSS', () => {
     cy.visit('./cypress/method.test.html')
   })
 
-  it('Snips on negative max lines', () => {
-    cy.get('[data-cy=paragraph]').then(($paragraph) => {
-      const paragraph = $paragraph.get()[0]
-      const oldLines = getLines(paragraph)
+  describe('Simple Scenarios', () => {
+    it('Snips on negative max lines', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+        const oldLines = getLines(paragraph)
 
-      snipByCSS(paragraph, { maxLines: -1 })
+        snipByCSS(paragraph, { maxLines: -1 })
 
-      expect(getLines(paragraph)).to.equal(oldLines)
+        expect(getLines(paragraph)).to.equal(oldLines)
+      })
+    })
+
+    it('Snips on zero max lines', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+        const oldLines = getLines(paragraph)
+
+        snipByCSS(paragraph, { maxLines: 0 })
+
+        expect(getLines(paragraph)).to.equal(oldLines)
+      })
+    })
+
+    it('Snips on 1 max lines', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+        snipByCSS(paragraph, { maxLines: 1 })
+
+        expect(getLines(paragraph)).to.equal(1)
+      })
+    })
+
+    it('Snips on 2 max lines', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+        snipByCSS(paragraph, { maxLines: 2 })
+
+        expect(getLines(paragraph)).to.equal(2)
+      })
+    })
+
+    it('Does not snip on 10 max lines', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+        const oldLines = getLines(paragraph)
+
+        snipByCSS(paragraph, { maxLines: 10 })
+
+        expect(getLines(paragraph)).to.equal(oldLines)
+      })
+    })
+
+    it('Maintains the original style attributes', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+        const originalColor = paragraph.style.color
+
+        snipByCSS(paragraph, { maxLines: 2 })
+
+        expect(paragraph.style.color).to.equal(originalColor)
+      })
     })
   })
 
-  it('Snips on zero max lines', () => {
-    cy.get('[data-cy=paragraph]').then(($paragraph) => {
-      const paragraph = $paragraph.get()[0]
-      const oldLines = getLines(paragraph)
+  describe('Complex Scenarios', () => {
+    it('Is able to increase / decrease max lines', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
 
-      snipByCSS(paragraph, { maxLines: 0 })
+        snipByCSS(paragraph, { maxLines: 1 })
+        expect(getLines(paragraph)).to.equal(1)
 
-      expect(getLines(paragraph)).to.equal(oldLines)
-    })
-  })
+        snipByCSS(paragraph, { maxLines: 2 })
+        expect(getLines(paragraph)).to.equal(2)
 
-  it('Snips on 1 max lines', () => {
-    cy.get('[data-cy=paragraph]').then(($paragraph) => {
-      const paragraph = $paragraph.get()[0]
-      snipByCSS(paragraph, { maxLines: 1 })
-
-      expect(getLines(paragraph)).to.equal(1)
-    })
-  })
-
-  it('Snips on 2 max lines', () => {
-    cy.get('[data-cy=paragraph]').then(($paragraph) => {
-      const paragraph = $paragraph.get()[0]
-      snipByCSS(paragraph, { maxLines: 2 })
-
-      expect(getLines(paragraph)).to.equal(2)
-    })
-  })
-
-  it('Does not snip on 10 max lines', () => {
-    cy.get('[data-cy=paragraph]').then(($paragraph) => {
-      const paragraph = $paragraph.get()[0]
-      const oldLines = getLines(paragraph)
-
-      snipByCSS(paragraph, { maxLines: 10 })
-
-      expect(getLines(paragraph)).to.equal(oldLines)
-    })
-  })
-
-  it('Maintains the original style attributes', () => {
-    cy.get('[data-cy=paragraph]').then(($paragraph) => {
-      const paragraph = $paragraph.get()[0]
-      const originalColor = paragraph.style.color
-
-      snipByCSS(paragraph, { maxLines: 2 })
-
-      expect(paragraph.style.color).to.equal(originalColor)
+        snipByCSS(paragraph, { maxLines: 1 })
+        expect(getLines(paragraph)).to.equal(1)
+      })
     })
   })
 })
