@@ -13,6 +13,7 @@
     "test": "yarn test:run && yarn coverage",
     "instrument": "nyc instrument src instrumented",
     "coverage": "nyc report --reporter=text --reporter=text-summary",
+    "coveralls": "npx nyc report --reporter=text-lcov | coveralls",
     "prepare": "yarn build"
   },
   "main": "dist/index.js",
