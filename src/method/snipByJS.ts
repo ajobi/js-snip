@@ -1,10 +1,10 @@
 import { getLines } from '../utils/getLines'
-import { SnipMethod } from './interface'
+import { Snip } from './interface'
 
 const defaultSeparators = ['. ', ', ', ' ', '']
 const defaultEllipsis = '.\u200A.\u200A.'
 
-export const snipByJS: SnipMethod = (element, options) => {
+export const snipByJS: Snip = (element, options) => {
   const { maxLines, ellipsis = defaultEllipsis, separators = defaultSeparators } = options
 
   const fullText = element.dataset.fullText ?? element.textContent

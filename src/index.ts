@@ -1,4 +1,5 @@
 export { snipByCSS } from './method/snipByCSS'
 export { snipByJS } from './method/snipByJS'
+export { unsnip } from './method/unsnip'
 export { getLines } from './utils/getLines'
 export { supportsCSSMethod } from './utils/supportsCSSMethod'

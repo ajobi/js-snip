@@ -1,7 +1,7 @@
-import { SnipMethod } from './interface'
+import { Snip } from './interface'
 
 // https://css-tricks.com/almanac/properties/l/line-clamp/
-export const snipByCSS: SnipMethod = (element, options) => {
+export const snipByCSS: Snip = (element, options) => {
   const { maxLines } = options
 
   const fullText = !element.dataset.fullText || element.dataset.fullText !== element.textContent

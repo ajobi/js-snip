@@ -4,6 +4,10 @@ export interface SnipOptions  {
   separators?: string[]
 }
 
-export interface SnipMethod {
+export interface Snip {
   (element: HTMLElement, options: SnipOptions): void
+}
+
+export interface Unsnip {
+  (element: HTMLElement): void
 }
