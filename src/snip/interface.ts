@@ -1,5 +1,6 @@
 export interface SnipOptions  {
-  maxLines: number
+  method?: 'css' | 'js'
+  maxLines?: number
   ellipsis?: string
   separators?: string[]
 }
