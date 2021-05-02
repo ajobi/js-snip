@@ -5,9 +5,12 @@ const defaultSeparators = ['. ', ', ', ' ', '']
 const defaultEllipsis = '.\u200A.\u200A.'
 
 export const snipByJS: SnipMethod = (element, options) => {
-  const { fullText, maxLines, ellipsis = defaultEllipsis, separators = defaultSeparators } = options
+  const { maxLines, ellipsis = defaultEllipsis, separators = defaultSeparators } = options
 
-  element.textContent = fullText ?? element.textContent
+  const fullText = element.dataset.fullText ?? element.textContent
+  element.dataset.fullText = fullText
+
+  element.textContent = fullText
   element.style.display = null
   element.style.webkitLineClamp = null
   element.style.webkitBoxOrient = null
@@ -18,7 +21,7 @@ export const snipByJS: SnipMethod = (element, options) => {
   }
 
   const snipProgress = {
-    unprocessed: fullText ?? element.textContent,
+    unprocessed: fullText,
     processed: ''
   }
 
