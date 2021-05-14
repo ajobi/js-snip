@@ -16,7 +16,7 @@ Universal JavaScript library for clamping HTML text elements.
 
 ## Installation
 
-``` bash
+```bash
 # install with npm
 npm install js-snip
 
@@ -26,11 +26,30 @@ yarn add js-snip
 
 ## Usage
 
-In progress...
+```typescript
+import { snip, unsnip } from 'js-snip'
+
+const options = {
+  // your options
+}
+
+// snipping an element
+snip(element, options)
+
+// unsnipping the element
+unsnip(element)
+```
 
 ## Options
 
-In progress...
+```typescript
+export interface SnipOptions {
+  method?: 'css' | 'js'
+  maxLines?: number
+  ellipsis?: string
+  separators?: string[]
+}
+```
 
 ## How it works
 
