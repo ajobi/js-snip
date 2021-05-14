@@ -36,4 +36,8 @@ describe('snip', () => {
       expect(getLines(paragraph)).to.equal(2)
     })
   })
+
+  it('Is able to switch snipping methods', () => {
+    // TODO: Add the test
+  })
 })
