@@ -94,7 +94,7 @@ describe('snipByCSS', () => {
         expect(getLines(paragraph)).to.equal(2)
 
         const newText = 'This is some custom text that is only useful for this test case. The text should now be visible on the page and properly clamped to exactly two lines. Not more, not less. This text is completely useless for the world.'
-        paragraph.innerText = newText
+        paragraph.textContent = newText
 
         snipByCSS(paragraph, { maxLines: 2 })
         expect(getLines(paragraph)).to.equal(2)

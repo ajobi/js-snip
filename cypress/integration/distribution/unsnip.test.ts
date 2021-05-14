@@ -10,14 +10,14 @@ describe('unsnip', () => {
   it('Unsnips properly after JS snipping', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      const originalText = paragraph.innerText
+      const originalText = paragraph.textContent
 
       snipByJS(paragraph, { maxLines: 2 })
-      expect(paragraph.innerText).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earum eius error expedita fuga illum iste iure minima nobis, odio praesentium quae quas ullam ve.\u200A.\u200A.')
+      expect(paragraph.textContent).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earum eius error expedita fuga illum iste iure minima nobis, odio praesentium quae quas ullam ve.\u200A.\u200A.')
 
       unsnip(paragraph)
       expect(getLines(paragraph)).to.equal(7)
-      expect(paragraph.innerText).to.equal(originalText)
+      expect(paragraph.textContent).to.equal(originalText)
       expect(paragraph.dataset.fullText).to.equal(undefined)
       expect(paragraph.style.display).to.equal('')
       expect(paragraph.style.webkitLineClamp).to.equal('')
@@ -29,14 +29,14 @@ describe('unsnip', () => {
   it('Unsnips properly after CSS snipping', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      const originalText = paragraph.innerText
+      const originalText = paragraph.textContent
 
       snipByCSS(paragraph, { maxLines: 2 })
       expect(getLines(paragraph)).to.equal(2)
 
       unsnip(paragraph)
       expect(getLines(paragraph)).to.equal(7)
-      expect(paragraph.innerText).to.equal(originalText)
+      expect(paragraph.textContent).to.equal(originalText)
       expect(paragraph.dataset.fullText).to.equal(undefined)
       expect(paragraph.style.display).to.equal('')
       expect(paragraph.style.webkitLineClamp).to.equal('')
