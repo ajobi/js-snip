@@ -26,7 +26,11 @@ yarn add js-snip
 
 ## Usage
 
+In progress...
+
 ## Options
+
+In progress...
 
 ## How it works
 
