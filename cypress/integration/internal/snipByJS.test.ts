@@ -1,4 +1,6 @@
 import { snipByJS } from '../../../instrumented/methods/snipByJS'
+import { snipByCSS } from '../../../instrumented/methods/snipByCSS'
+import { getLines } from '../../../instrumented'
 
 describe('snipByJS', () => {
   beforeEach(() => {
@@ -83,14 +85,22 @@ describe('snipByJS', () => {
     })
 
     it('Is able to change text ', () => {
-      // TODO: Add the test
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        // const paragraph = $paragraph.get()[0]
+        //
+        // snipByJS(paragraph, { maxLines: 1 })
+        // expect(paragraph.innerText).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earu.\u200A.\u200A.')
+        //
+        // const newText = 'This is some custom text that is only useful for this test case. The text should now be visible on the page and properly clamped to exactly two lines. Not more, not less. This text is completely useless for the world.'
+        // paragraph.innerText = newText
+        //
+        // snipByJS(paragraph, { maxLines: 1 })
+        // expect(paragraph.innerText).to.equal('This is some custom text that is only useful for this test case. The text should now be visible on the page and properly.\u200A.\u200A.')
+        // expect(paragraph.dataset.fullText).to.equal(newText)
+      })
     })
 
     it('Is able to work with nested elements', () => {
-      // TODO: Add the test
-    })
-
-    it('Is able to switch snipping methods', () => {
       // TODO: Add the test
     })
   })
