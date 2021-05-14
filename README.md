@@ -54,7 +54,7 @@ export interface SnipOptions {
 ## How it works
 
 - **CSS** approach is based on the `-webkit-line-clamp`.
-- **JavaScript** approach is based on the progressive cutting of the element's `innerText` in a loop.
+- **JavaScript** approach is based on the progressive cutting of the element's `textContent` in a loop.
 
 *Note: CSS approach is faster (preferred), but does not work in older browsers / in all situations (f.e. does not work in IE11, when you need the text to flow around a floated element, or when you want a custom ellipsis).*
 
