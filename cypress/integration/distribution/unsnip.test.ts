@@ -2,7 +2,7 @@ import { getLines, unsnip } from '../../../instrumented'
 import { snipByCSS } from '../../../instrumented/methods/snipByCSS'
 import { snipByJS } from '../../../instrumented/methods/snipByJS'
 
-describe('snipByJS', () => {
+describe('unsnip', () => {
   beforeEach(() => {
     cy.visit('./cypress/method.test.html')
   })

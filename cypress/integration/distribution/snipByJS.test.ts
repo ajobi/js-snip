@@ -83,15 +83,15 @@ describe('snipByJS', () => {
     })
 
     it('Is able to change text ', () => {
-      // TODO: Implement the functionality
+      // TODO: Add the test
     })
 
     it('Is able to work with nested elements', () => {
-      // TODO: Implement the functionality
+      // TODO: Add the test
     })
 
     it('Is able to switch snipping methods', () => {
-      // TODO: Implement the functionality
+      // TODO: Add the test
     })
   })
 })
