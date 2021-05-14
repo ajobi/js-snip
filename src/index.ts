@@ -1,5 +1,3 @@
-export { snipByCSS } from './methods/snipByCSS'
-export { snipByJS } from './methods/snipByJS'
 export { snip } from './snip/snip'
 export { unsnip } from './snip/unsnip'
 export { getLines } from './utils/getLines'

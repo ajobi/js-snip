@@ -1,4 +1,4 @@
-import { snipByJS } from '../../../instrumented'
+import { snipByJS } from '../../../instrumented/methods/snipByJS'
 
 describe('snipByJS', () => {
   beforeEach(() => {

@@ -1,4 +1,5 @@
-import { snipByCSS, getLines } from '../../../instrumented'
+import { getLines } from '../../../instrumented'
+import { snipByCSS } from '../../../instrumented/methods/snipByCSS'
 
 describe('snipByCSS', () => {
   beforeEach(() => {
