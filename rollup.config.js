@@ -1,17 +1,17 @@
 import esbuild from 'rollup-plugin-esbuild'
 import dts from 'rollup-plugin-dts'
+import pkg from './package.json'
 
 const input = 'src/index.ts'
-import pkg from './package.json'
 
 export default [
   {
     input,
     output: {
       file: pkg.module,
-      format: 'esm',
+      format: 'esm'
     },
-    plugins: [esbuild({ minify: true })],
+    plugins: [esbuild({ minify: true })]
   },
   {
     input,
@@ -20,7 +20,7 @@ export default [
       format: 'umd',
       name: 'JsSnip'
     },
-    plugins: [esbuild({ minify: true })],
+    plugins: [esbuild({ minify: true })]
   },
   {
     input,
@@ -29,5 +29,5 @@ export default [
       format: 'esm'
     },
     plugins: [dts()]
-  },
+  }
 ]

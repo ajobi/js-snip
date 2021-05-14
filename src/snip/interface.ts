@@ -1,4 +1,4 @@
-export interface SnipOptions  {
+export interface SnipOptions {
   method?: 'css' | 'js'
   maxLines?: number
   ellipsis?: string

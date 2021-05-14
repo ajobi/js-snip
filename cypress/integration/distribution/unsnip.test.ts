@@ -5,7 +5,7 @@ describe('snipByJS', () => {
     cy.visit('./cypress/method.test.html')
   })
 
-  it ('Unsnips properly after JS snipping', () => {
+  it('Unsnips properly after JS snipping', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
       const originalText = paragraph.innerText
@@ -24,7 +24,7 @@ describe('snipByJS', () => {
     })
   })
 
-  it ('Unsnips properly after CSS snipping', () => {
+  it('Unsnips properly after CSS snipping', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
       const originalText = paragraph.innerText
