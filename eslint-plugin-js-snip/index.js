@@ -4,7 +4,6 @@ module.exports = {
       meta: {
         type: 'suggestion',
         fixable: 'code',
-        schema: [],
         messages: {
           unexpected: "Prefer 'textContent' over 'innerText'"
         }
@@ -14,7 +13,7 @@ module.exports = {
           MemberExpression: node => {
             if (node.property.name === 'innerText') {
               context.report({
-                node: node,
+                node: node.property,
                 messageId: 'unexpected',
                 fix: () => {
                   // TODO: implement fix
