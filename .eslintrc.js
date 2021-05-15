@@ -8,10 +8,16 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
-  plugins: ['@typescript-eslint'],
+  plugins: [
+    '@typescript-eslint',
+    'js-snip'
+  ],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:cypress/recommended',
     'standard'
-  ]
+  ],
+  rules: {
+    'js-snip/no-inner-text': 'error'
+  }
 }
