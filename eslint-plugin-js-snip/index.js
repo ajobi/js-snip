@@ -15,10 +15,7 @@ module.exports = {
               context.report({
                 node: node.property,
                 messageId: 'unexpected',
-                fix: () => {
-                  // TODO: implement fix
-                  // return fixer.insertTextAfter(node, ';')
-                }
+                fix: fixer => fixer.replaceText(node.property, 'textContent')
               })
             }
           }
