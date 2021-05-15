@@ -26,5 +26,13 @@ module.exports = {
         }
       }
     }
+  },
+  configs: {
+    recommended: {
+      plugins: ['js-snip'],
+      rules: {
+        'js-snip/no-inner-text': 'error'
+      }
+    }
   }
 }
