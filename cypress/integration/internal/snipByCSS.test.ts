@@ -102,7 +102,6 @@ describe('snipByCSS', () => {
       })
     })
 
-
     it('Is able to work with nested elements', () => {
       // TODO: Add the test
     })
