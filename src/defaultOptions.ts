@@ -1,5 +1,6 @@
 import { SnipOptions } from './snip/interface'
 
+// TODO: Switch to a higher level "midWord" instead of separators option
 export const defaultOptions: SnipOptions = {
   method: 'css',
   maxLines: 3,
