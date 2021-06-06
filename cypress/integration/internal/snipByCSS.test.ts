@@ -101,5 +101,10 @@ describe('snipByCSS', () => {
         expect(paragraph.dataset.fullText).to.equal(newText)
       })
     })
+
+
+    it('Is able to work with nested elements', () => {
+      // TODO: Add the test
+    })
   })
 })
