@@ -1,3 +1,5 @@
+// TODO: ts-config?
+
 export { snip } from './snip/snip'
 export { unsnip } from './snip/unsnip'
 export { getLines } from './utils/getLines'
