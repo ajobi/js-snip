@@ -44,4 +44,14 @@ describe('unsnip', () => {
       expect(paragraph.style.overflow).to.equal('')
     })
   })
+
+  it('Does not break unsnipped elements', () => {
+    cy.get('[data-cy=paragraph]').then(($paragraph) => {
+      const paragraph = $paragraph.get()[0]
+      const originalText = paragraph.textContent
+
+      unsnip(paragraph)
+      expect(paragraph.textContent).to.equal(originalText)
+    })
+  })
 })
