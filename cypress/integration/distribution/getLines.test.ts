@@ -32,7 +32,7 @@ describe('getLinesLines', () => {
   })
 
   describe('with explicit lineheight', () => {
-    describe('with higher than fontsize lineheight', () => {
+    describe('with higher than fontsize line height', () => {
       beforeEach(() => {
         cy.visit('./cypress/lines.test.html')
         cy.get('p').invoke('attr', 'style', 'line-height: 3rem')
