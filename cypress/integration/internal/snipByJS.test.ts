@@ -64,8 +64,18 @@ describe('snipByJS', () => {
       })
     })
 
-    // TODO: Custom ellipsis test
-    // TODO: Custom separators test
+    it('Applies custom ellipsis properly', () => {
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+        snipByJS(paragraph, { maxLines: 1, ellipsis: 'AAA' })
+
+        expect(paragraph.textContent).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur eaAAA')
+      })
+    })
+
+    it('Works with custom separators', () => {
+      // TODO: Custom separators test
+    })
   })
 
   describe('Complex Scenarios', () => {
