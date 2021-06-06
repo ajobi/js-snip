@@ -74,7 +74,12 @@ describe('snipByJS', () => {
     })
 
     it('Works with custom separators', () => {
-      // TODO: Custom separators test
+      cy.get('[data-cy=paragraph]').then(($paragraph) => {
+        const paragraph = $paragraph.get()[0]
+        snipByJS(paragraph, { maxLines: 1, separators: [''] })
+
+        expect(paragraph.textContent).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earu.\u200A.\u200A.')
+      })
     })
   })
 
