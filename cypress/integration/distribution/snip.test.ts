@@ -1,4 +1,4 @@
-import { snip, getLines } from '../../../instrumented'
+import { snip, getLines, unsnip } from '../../../instrumented'
 
 describe('snip', () => {
   beforeEach(() => {
@@ -92,10 +92,12 @@ describe('snip', () => {
         expect(paragraph.textContent).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earu.\u200A.\u200A.')
 
         const newText = 'This is some custom text that is only useful for this test case. The text should now be visible on the page and properly clamped to exactly two lines. Not more, not less. This text is completely useless for the world.'
+        // TODO: think about not having to use manual unsnip in the future
+        unsnip(paragraph)
         paragraph.textContent = newText
 
         snip(paragraph, { maxLines: 1, method: 'js' })
-        expect(paragraph.textContent).to.equal('This is some custom text that is only useful for this test case. The text should now be visible on the page and properly.\u200A.\u200A.')
+        expect(paragraph.textContent).to.equal('This is some custom text that is only useful for this test case. The text should now be visibl.\u200A.\u200A.')
         expect(paragraph.dataset.fullText).to.equal(newText)
       })
     })
