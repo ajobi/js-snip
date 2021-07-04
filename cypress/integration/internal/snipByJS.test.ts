@@ -72,13 +72,12 @@ describe('snipByJS', () => {
     })
   })
 
-  it('Works with custom separators', () => {
-    cy.get('[data-cy=paragraph]').then(($paragraph) => {
-      const paragraph = $paragraph.get()[0]
-      snipByJS(paragraph, { maxLines: 1, separators: [''] })
+  it('Is able to snip mid word', () => {
+    // TODO: add tests
+  })
 
-      expect(paragraph.textContent).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earu.\u200A.\u200A.')
-    })
+  it('is able to not snip midword', () => {
+    // TODO: add tests
   })
 
   it('Is able to work with nested elements', () => {

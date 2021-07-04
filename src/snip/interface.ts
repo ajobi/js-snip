@@ -2,7 +2,7 @@ export interface SnipOptions {
   method?: 'css' | 'js'
   maxLines?: number
   ellipsis?: string
-  separators?: string[]
+  midWord?: boolean
 }
 
 export interface Snip {
