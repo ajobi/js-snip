@@ -1,11 +1,13 @@
 import { getLines } from '../utils/getLines'
 import { Snip } from '../snip/interface'
 
-const defaultSeparators = ['. ', ', ', ' ', '']
 const defaultEllipsis = '.\u200A.\u200A.'
+const defaultMidWord = true
 
 export const snipByJS: Snip = (element, options) => {
-  const { maxLines, ellipsis = defaultEllipsis, separators = defaultSeparators } = options
+  const { maxLines, ellipsis = defaultEllipsis, midWord = defaultMidWord } = options
+
+  const separators = midWord ? ['. ', ', ', ' ', ''] : ['. ', ', ', ' ']
 
   const fullText = element.dataset.fullText ?? element.textContent
   element.dataset.fullText = fullText
