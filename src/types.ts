@@ -1,5 +1,7 @@
+export type SnipMethod = 'css' | 'js'
+
 export interface SnipOptions {
-  method?: 'css' | 'js'
+  method?: SnipMethod
   maxLines?: number
   ellipsis?: string
   midWord?: boolean
