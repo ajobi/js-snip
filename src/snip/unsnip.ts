@@ -1,8 +1,10 @@
 import { Unsnip } from '../types'
+import { destroyObserver } from '../observer/destroyObserver'
 
 export const unsnip: Unsnip = (element) => {
-  element.textContent = element.dataset.fullText || element.textContent
-  element.removeAttribute('data-full-text')
+  const elState = window.__JsSnipState.elementMap.get(element)
+  element.textContent = elState.fullText
+  destroyObserver(element)
 
   element.style.display = ''
   element.style.webkitLineClamp = ''

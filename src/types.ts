@@ -24,7 +24,6 @@ export interface ElementState extends SnipOptions {
 
 export interface JsSnipState {
   elementMap: WeakMap<HTMLElement, ElementState>
-  options: SnipOptions
 }
 
 declare global {
