@@ -14,7 +14,8 @@ export const snip: Snip = (element, options) => {
     ...options
   }
 
-  if (!elState.fullText) {
+  const isFirstSnip = !window.__JsSnipState.get(element)
+  if (isFirstSnip) {
     elState.fullText = element.textContent
   }
 
