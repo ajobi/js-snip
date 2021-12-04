@@ -4,7 +4,7 @@ import { snipByJS } from '../../instrumented/methods/snipByJS'
 
 describe('snipByJS', () => {
   beforeEach(() => {
-    cy.visit('./cypress/method.test.html')
+    cy.visit('./cypress/tests/paragraph-single.html')
   })
 
   it('Snips on negative max lines', () => {

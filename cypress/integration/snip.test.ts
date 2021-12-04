@@ -1,8 +1,8 @@
-import { snip, getLines, unsnip } from '../../../instrumented'
+import { snip, getLines, unsnip } from '../../instrumented'
 
 describe('snip', () => {
   beforeEach(() => {
-    cy.visit('./cypress/method.test.html')
+    cy.visit('./cypress/tests/paragraph-single.html')
   })
 
   it('Does snip with CSS method', () => {
