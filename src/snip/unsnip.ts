@@ -1,4 +1,4 @@
-import { Unsnip } from './interface'
+import { Unsnip } from '../types'
 
 export const unsnip: Unsnip = (element) => {
   element.textContent = element.dataset.fullText || element.textContent

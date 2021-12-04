@@ -1,5 +1,5 @@
 import { getLines } from '../utils/getLines'
-import { Snip } from '../snip/interface'
+import { Snip } from '../types'
 
 const defaultEllipsis = '.\u200A.\u200A.'
 const defaultMidWord = true

@@ -1,4 +1,4 @@
-import { Snip, SnipOptions } from './interface'
+import { Snip, SnipOptions } from '../types'
 import { snipByCSS } from '../methods/snipByCSS'
 import { snipByJS } from '../methods/snipByJS'
 
