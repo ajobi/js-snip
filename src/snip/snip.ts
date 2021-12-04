@@ -23,9 +23,14 @@ export const snip: Snip = (element, options) => {
     window.__JsSnipState = new WeakMap()
   }
 
-  const elState = {
+  let elState = (window.__JsSnipState.get(element) || {})
+
+  const prevMaxlines = elState.maxLines
+  const prevMethod = elState.method
+
+  elState = {
     ...defaultOptions,
-    ...(window.__JsSnipState.get(element) || {}),
+    ...elState,
     ...options
   }
 
@@ -36,11 +41,13 @@ export const snip: Snip = (element, options) => {
 
   window.__JsSnipState.set(element, elState)
 
-  if (elState.method === 'js') {
-    addObserver(element)
-    snipByJS(element, elState)
+  const needsObserver = elState.method === 'js'
+  const needsSnipping = (prevMaxlines !== elState.maxLines) || (prevMethod !== elState.method && elState.method === 'css')
+
+  if (isFirstSnip) {
+    needsObserver && typeof ResizeObserver !== 'undefined' ? addObserver(element) : snipText(element)
   } else {
-    destroyObserver(element)
-    snipByCSS(element, elState)
+    needsObserver && typeof ResizeObserver !== 'undefined' ? addObserver(element) : destroyObserver(element)
+    needsSnipping && snipText(element)
   }
 }
