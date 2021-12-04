@@ -1,0 +1,33 @@
+body {
+  margin: 15px;
+}
+
+#demo {
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.card p {
+  margin-bottom: 0;
+}
+
+.float-element {
+  width: 100px;
+  height: 100px;
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.slider {
+  height: 1.8rem;
+}
