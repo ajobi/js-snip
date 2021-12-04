@@ -1,4 +1,4 @@
-import { snipByJS } from '../../../instrumented/methods/snipByJS'
+import { snipByJS } from '../../instrumented/methods/snipByJS'
 // import { snipByCSS } from '../../../instrumented/methods/snipByCSS'
 // import { getLines } from '../../../instrumented'
 
