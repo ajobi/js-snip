@@ -14,6 +14,10 @@ export const snip: Snip = (element, options) => {
     ...options
   }
 
+  if (!elState.fullText) {
+    elState.fullText = element.textContent
+  }
+
   window.__JsSnipState.set(element, elState)
 
   if (elState.method === 'js') {

@@ -1,16 +1,10 @@
 import { getLines } from '../utils'
-import { Snip } from '../types'
+import { ElementState } from '../types'
 
-const defaultEllipsis = '.\u200A.\u200A.'
-const defaultMidWord = true
-
-export const snipByJS: Snip = (element, options) => {
-  const { maxLines, ellipsis = defaultEllipsis, midWord = defaultMidWord } = options
+export const snipByJS = (element: HTMLElement, elementState: ElementState): void => {
+  const { maxLines, midWord, fullText, ellipsis } = elementState
 
   const separators = midWord ? ['. ', ', ', ' ', ''] : ['. ', ', ', ' ']
-
-  const fullText = element.dataset.fullText ?? element.textContent
-  element.dataset.fullText = fullText
 
   element.textContent = fullText
   element.style.display = ''

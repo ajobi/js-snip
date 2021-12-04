@@ -1,14 +1,8 @@
-import { Snip } from '../types'
+import { ElementState } from '../types'
 
 // https://css-tricks.com/almanac/properties/l/line-clamp/
-export const snipByCSS: Snip = (element, options) => {
-  const { maxLines } = options
-
-  const fullText = !element.dataset.fullText || element.dataset.fullText !== element.textContent
-    ? element.textContent
-    : element.dataset.fullText
-
-  element.dataset.fullText = fullText
+export const snipByCSS = (element: HTMLElement, elementState: ElementState): void => {
+  const { maxLines, fullText } = elementState
 
   element.textContent = fullText
   element.style.display = '-webkit-box'
