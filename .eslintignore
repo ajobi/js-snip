@@ -1,2 +1,4 @@
 dist
 instrumented
+docs/index.js
+docs/polyfill
