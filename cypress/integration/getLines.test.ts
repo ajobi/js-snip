@@ -1,9 +1,9 @@
-import { getLines } from '../../../instrumented'
+import { getLines } from '../../instrumented'
 
 describe('getLinesLines', () => {
   describe('with implicit line height', () => {
     beforeEach(() => {
-      cy.visit('./cypress/lines.test.html')
+      cy.visit('./cypress/tests/paragraph-multiple.html')
     })
 
     it('returns 0 on empty text', () => {
@@ -34,7 +34,7 @@ describe('getLinesLines', () => {
   describe('with explicit lineheight', () => {
     describe('with higher than fontsize line height', () => {
       beforeEach(() => {
-        cy.visit('./cypress/lines.test.html')
+        cy.visit('./cypress/tests/paragraph-multiple.html')
         cy.get('p').invoke('attr', 'style', 'line-height: 3rem')
       })
 
@@ -65,7 +65,7 @@ describe('getLinesLines', () => {
 
     describe('with smaller than fontsize line height', () => {
       beforeEach(() => {
-        cy.visit('./cypress/lines.test.html')
+        cy.visit('./cypress/tests/paragraph-multiple.html')
         cy.get('p').invoke('attr', 'style', 'line-height: 0.1rem')
       })
 
@@ -96,7 +96,7 @@ describe('getLinesLines', () => {
 
     describe('with 0 lineheight', () => {
       beforeEach(() => {
-        cy.visit('./cypress/lines.test.html')
+        cy.visit('./cypress/tests/paragraph-multiple.html')
         cy.get('p').invoke('attr', 'style', 'line-height: 0')
       })
 

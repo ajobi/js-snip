@@ -3,7 +3,7 @@ import { snipByCSS } from '../../instrumented/methods/snipByCSS'
 
 describe('snipByCSS', () => {
   beforeEach(() => {
-    cy.visit('./cypress/method.test.html')
+    cy.visit('./cypress/tests/paragraph-single.html')
   })
 
   it('Snips on negative max lines', () => {

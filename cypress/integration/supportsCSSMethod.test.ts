@@ -1,4 +1,4 @@
-import { supportsCSSMethod } from '../../../instrumented'
+import { supportsCSSMethod } from '../../instrumented'
 
 describe('supportsCSSMethod', () => {
   const refCSS = window.CSS

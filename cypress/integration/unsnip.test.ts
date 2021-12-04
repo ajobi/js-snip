@@ -1,10 +1,10 @@
-import { getLines, unsnip } from '../../../instrumented'
-import { snipByCSS } from '../../../instrumented/methods/snipByCSS'
-import { snipByJS } from '../../../instrumented/methods/snipByJS'
+import { getLines, unsnip } from '../../instrumented'
+import { snipByCSS } from '../../instrumented/methods/snipByCSS'
+import { snipByJS } from '../../instrumented/methods/snipByJS'
 
 describe('unsnip', () => {
   beforeEach(() => {
-    cy.visit('./cypress/method.test.html')
+    cy.visit('./cypress/tests/paragraph-single.html')
   })
 
   it('Unsnips properly after JS snipping', () => {
