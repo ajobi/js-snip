@@ -1,5 +1,5 @@
 export const destroyObserver = (el: HTMLElement): void => {
-  const elState = window.__JsSnipState.elementMap.get(el)
+  const elState = window.__JsSnipState.get(el)
 
   elState.observer && elState.observer.disconnect()
   elState.observer && delete elState.prevWidth

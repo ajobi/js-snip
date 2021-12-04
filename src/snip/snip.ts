@@ -7,18 +7,16 @@ import { destroyObserver } from '../observer/destroyObserver'
 
 export const snip: Snip = (element, options) => {
   if (!window.__JsSnipState) {
-    window.__JsSnipState = {
-      elementMap: new WeakMap()
-    }
+    window.__JsSnipState = new WeakMap()
   }
 
   const elState = {
     ...defaultOptions,
-    ...(window.__JsSnipState.elementMap.get(element) || {}),
+    ...(window.__JsSnipState.get(element) || {}),
     ...options
   }
 
-  window.__JsSnipState.elementMap.set(element, elState)
+  window.__JsSnipState.set(element, elState)
 
   if (elState.method === 'js') {
     addObserver(element)
