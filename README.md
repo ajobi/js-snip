@@ -12,7 +12,10 @@ Universal JavaScript library for clamping HTML text elements.
 #### Key features:
 * two snipping approaches (CSS / JavaScript)
 * no need to specify line heights
+* re-snipping on element resize
 * no dependencies
+
+![](assets/illustration.png)
 
 ## Installation
 
