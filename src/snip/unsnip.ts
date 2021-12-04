@@ -3,11 +3,13 @@ import { destroyObserver } from '../observer'
 
 export const unsnip: Unsnip = (element) => {
   const elState = window.__JsSnipState.get(element)
-  element.textContent = elState.fullText
-  destroyObserver(element)
 
+  element.textContent = elState.fullText
   element.style.display = ''
   element.style.webkitLineClamp = ''
   element.style.webkitBoxOrient = ''
   element.style.overflow = ''
+
+  destroyObserver(element)
+  window.__JsSnipState.delete(element)
 }
