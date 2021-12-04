@@ -1,4 +1,4 @@
-import { snip } from '../snip/snip'
+import { snip } from '../snip'
 
 export const addObserver = (el: HTMLElement): void => {
   const elState = window.__JsSnipState.get(el)
