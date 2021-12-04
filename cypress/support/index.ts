@@ -20,3 +20,8 @@ import './commands'
 // require('./commands')
 
 import '@cypress/code-coverage/support'
+
+// https://github.com/quasarframework/quasar/issues/2233#issuecomment-656554190
+Cypress.on('uncaught:exception', (err) => {
+  return !err.message.includes('ResizeObserver')
+})
