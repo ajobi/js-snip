@@ -1,18 +1,18 @@
-import esbuild from 'rollup-plugin-esbuild'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import { babel } from '@rollup/plugin-babel'
+import { terser } from 'rollup-plugin-terser'
 import dts from 'rollup-plugin-dts'
 import pkg from './package.json'
 
 const input = 'src/index.ts'
 
+const plugins = [
+  nodeResolve({ extensions: ['.ts'] }),
+  babel({ babelHelpers: 'bundled', extensions: ['.ts'] }),
+  terser()
+]
+
 export default [
-  {
-    input,
-    output: {
-      file: pkg.module,
-      format: 'esm'
-    },
-    plugins: [esbuild({ minify: true })]
-  },
   {
     input,
     output: {
@@ -20,7 +20,7 @@ export default [
       format: 'umd',
       name: 'JsSnip'
     },
-    plugins: [esbuild({ minify: true })]
+    plugins: plugins
   },
   {
     input,
