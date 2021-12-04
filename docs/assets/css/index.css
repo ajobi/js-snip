@@ -10,6 +10,10 @@ body {
   flex-direction: column;
 }
 
+.card {
+  margin-bottom: 20px;
+}
+
 .card p {
   margin-bottom: 0;
 }

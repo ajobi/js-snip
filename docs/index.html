@@ -21,7 +21,21 @@
       <h5>What is JavaScript?</h5>
     </div>
     <div class="card-body">
-      <p id="demo-paragraph">
+      <p id="demo-paragraph-1">
+        JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class
+        functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also
+        use it, such as Node.js. JavaScript is a prototype-based, multi-paradigm, single-threaded, dynamic language,
+        supporting object-oriented, imperative, and declarative (e.g. functional programming) styles. JavaScript is the
+        world's most popular programming language.
+      </p>
+    </div>
+  </div>
+  <div class="card clearfix">
+    <div class="card-header">
+      <h5>What is JavaScript?</h5>
+    </div>
+    <div class="card-body">
+      <p id="demo-paragraph-2">
         JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class
         functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also
         use it, such as Node.js. JavaScript is a prototype-based, multi-paradigm, single-threaded, dynamic language,
@@ -34,8 +48,8 @@
 <script>
   ResizeObserver = ResizeObserver.ResizeObserver || ResizeObserver
 
-  const demoParagraph = document.querySelector('#demo-paragraph')
-  JsSnip.snip(demoParagraph)
+  JsSnip.snip(document.querySelector('#demo-paragraph-1'), { method: 'css'})
+  JsSnip.snip(document.querySelector('#demo-paragraph-2'), { method: 'js'})
 </script>
 </body>
 </html>
