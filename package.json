@@ -8,6 +8,7 @@
     "build": "rollup -c",
     "lint": "eslint './**/*.{js,ts}'",
     "lint:fix": "eslint './**/*.{js,ts}' --fix",
+    "dev": "NODE_ENV=development rollup -c",
     "es-check": "es-check es5 dist/*.js",
     "test:open": "yarn instrument && cypress open",
     "test:run": "yarn instrument && cypress run",
@@ -44,6 +45,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "rollup": "^2.46.0",
     "rollup-plugin-dts": "^3.0.1",
+    "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.2.4"
   },
