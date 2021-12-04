@@ -1,4 +1,4 @@
-import { Snip } from '../snip/interface'
+import { Snip } from '../types'
 
 // https://css-tricks.com/almanac/properties/l/line-clamp/
 export const snipByCSS: Snip = (element, options) => {

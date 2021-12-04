@@ -1,4 +1,4 @@
-import { SnipOptions } from './snip/interface'
+import { SnipOptions } from './types'
 
 export const defaultOptions: SnipOptions = {
   method: 'css',
