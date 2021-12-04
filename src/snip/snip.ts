@@ -1,11 +1,23 @@
-import { Snip } from './interface'
+import { Snip, SnipOptions } from './interface'
 import { snipByCSS } from '../methods/snipByCSS'
 import { snipByJS } from '../methods/snipByJS'
 
+const defaultOptions: SnipOptions = {
+  method: 'css',
+  maxLines: 3,
+  ellipsis: '.\u200A.\u200A.',
+  midWord: true
+}
+
 export const snip: Snip = (element, options) => {
-  if (options.method === 'js') {
-    snipByJS(element, options)
+  const mergeOptions = {
+    ...defaultOptions,
+    ...options
+  }
+
+  if (mergeOptions.method === 'js') {
+    snipByJS(element, mergeOptions)
   } else {
-    snipByCSS(element, options)
+    snipByCSS(element, mergeOptions)
   }
 }
