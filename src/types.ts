@@ -22,12 +22,8 @@ export interface ElementState extends SnipOptions {
   fullText?: string
 }
 
-export interface JsSnipState {
-  elementMap: WeakMap<HTMLElement, ElementState>
-}
-
 declare global {
   interface Window {
-    __JsSnipState?: JsSnipState
+    __JsSnipState?: WeakMap<HTMLElement, ElementState>
   }
 }

@@ -2,7 +2,7 @@ import { Unsnip } from '../types'
 import { destroyObserver } from '../observer/destroyObserver'
 
 export const unsnip: Unsnip = (element) => {
-  const elState = window.__JsSnipState.elementMap.get(element)
+  const elState = window.__JsSnipState.get(element)
   element.textContent = elState.fullText
   destroyObserver(element)
 
