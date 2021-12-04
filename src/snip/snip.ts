@@ -3,6 +3,21 @@ import { defaultOptions } from '../defaultOptions'
 import { snipByCSS, snipByJS } from '../methods'
 import { addObserver, destroyObserver } from '../observer'
 
+export const snipText = (element: HTMLElement): void => {
+  const elementState = window.__JsSnipState.get(element)
+
+  if (elementState.method === 'css') {
+    snipByCSS(element, elementState)
+    return
+  }
+
+  if (elementState.method === 'js') {
+    snipByJS(element, elementState)
+    elementState.prevWidth = element.clientWidth
+    elementState.prevHeight = element.clientHeight
+  }
+}
+
 export const snip: Snip = (element, options) => {
   if (!window.__JsSnipState) {
     window.__JsSnipState = new WeakMap()
@@ -24,8 +39,6 @@ export const snip: Snip = (element, options) => {
   if (elState.method === 'js') {
     addObserver(element)
     snipByJS(element, elState)
-    elState.prevWidth = element.clientWidth
-    elState.prevHeight = element.clientHeight
   } else {
     destroyObserver(element)
     snipByCSS(element, elState)
