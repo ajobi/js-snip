@@ -1,9 +1,7 @@
 import { Snip } from '../types'
 import { defaultOptions } from '../defaultOptions'
-import { snipByCSS } from '../methods/snipByCSS'
-import { snipByJS } from '../methods/snipByJS'
-import { addObserver } from '../observer/addObesrver'
-import { destroyObserver } from '../observer/destroyObserver'
+import { snipByCSS, snipByJS } from '../methods'
+import { addObserver, destroyObserver } from '../observer'
 
 export const snip: Snip = (element, options) => {
   if (!window.__JsSnipState) {

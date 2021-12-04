@@ -1,4 +1,2 @@
-export { snip } from './snip/snip'
-export { unsnip } from './snip/unsnip'
-export { getLines } from './utils/getLines'
-export { supportsCSSMethod } from './utils/supportsCSSMethod'
+export { snip, unsnip } from './snip'
+export { getLines, supportsCSSMethod } from './utils'

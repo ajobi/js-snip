@@ -1,4 +1,4 @@
-import { getLines } from '../utils/getLines'
+import { getLines } from '../utils'
 import { Snip } from '../types'
 
 const defaultEllipsis = '.\u200A.\u200A.'

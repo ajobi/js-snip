@@ -1,5 +1,5 @@
 import { defaultOptions } from '../defaultOptions'
-import { supportsCSSMethod } from '../utils/supportsCSSMethod'
+import { supportsCSSMethod } from '../utils'
 import { SnipMethod } from '../types'
 
 export const parseMethod = (method: unknown): SnipMethod => {

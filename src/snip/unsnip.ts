@@ -1,5 +1,5 @@
 import { Unsnip } from '../types'
-import { destroyObserver } from '../observer/destroyObserver'
+import { destroyObserver } from '../observer'
 
 export const unsnip: Unsnip = (element) => {
   const elState = window.__JsSnipState.get(element)
