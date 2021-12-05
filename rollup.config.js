@@ -17,16 +17,21 @@ const plugins = [
 export default [
   {
     input,
-    output: [{
-      file: pkg.main,
-      format: 'umd',
-      name: 'JsSnip'
-    },
-    {
-      file: pkg.main.replace('dist', 'docs'),
-      format: 'umd',
-      name: 'JsSnip'
-    }
+    output: [
+      {
+        file: pkg.module,
+        format: 'esm'
+      },
+      {
+        file: pkg.main,
+        format: 'umd',
+        name: 'JsSnip'
+      },
+      {
+        file: pkg.main.replace('dist', 'docs'),
+        format: 'umd',
+        name: 'JsSnip'
+      }
     ],
     plugins: plugins
   },
