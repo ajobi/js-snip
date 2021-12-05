@@ -1,4 +1,4 @@
-import { snipText } from '../snip/snip'
+import { snipText } from '../methods'
 import { getState } from '../utils'
 
 export const addObserver = (el: HTMLElement): void => {
