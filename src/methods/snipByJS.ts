@@ -1,8 +1,7 @@
-import { getLines } from '../utils'
-import { ElementState } from '../types'
+import { getLines, getState } from '../utils'
 
-export const snipByJS = (element: HTMLElement, elementState: ElementState): void => {
-  const { maxLines, midWord, fullText, ellipsis } = elementState
+export const snipByJS = (element: HTMLElement): void => {
+  const { lines, midWord, fullText, ellipsis } = getState(element)
 
   const separators = midWord ? ['. ', ', ', ' ', ''] : ['. ', ', ', ' ']
 
@@ -12,7 +11,7 @@ export const snipByJS = (element: HTMLElement, elementState: ElementState): void
   element.style.webkitBoxOrient = ''
   element.style.overflow = ''
 
-  if (maxLines <= 0 || getLines(element) <= maxLines) {
+  if (lines <= 0 || getLines(element) <= lines) {
     return
   }
 
@@ -25,7 +24,7 @@ export const snipByJS = (element: HTMLElement, elementState: ElementState): void
     for (const chunk of snipProgress.unprocessed.split(separator)) {
       element.textContent = `${snipProgress.processed}${chunk}${separator}${ellipsis}`
 
-      if (getLines(element) > maxLines) {
+      if (getLines(element) > lines) {
         snipProgress.unprocessed = chunk
         break
       }

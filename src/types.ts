@@ -2,7 +2,7 @@ export type SnipMethod = 'css' | 'js'
 
 export interface SnipOptions {
   method?: SnipMethod
-  maxLines?: number
+  lines?: number
   ellipsis?: string
   midWord?: boolean
 }

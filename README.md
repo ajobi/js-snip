@@ -48,7 +48,7 @@ unsnip(element)
 ```typescript
 export interface SnipOptions {
   method?: 'css' | 'js'
-  maxLines?: number
+  lines?: number
   ellipsis?: string
   midWord?: boolean
 }
