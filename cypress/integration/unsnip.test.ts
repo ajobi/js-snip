@@ -1,6 +1,7 @@
 import { getLines, unsnip } from '../../instrumented'
 import { snipByCSS, snipByJS } from '../../instrumented/methods'
 import { getMockState } from './snipByCSS.test'
+import { getState, setState } from '../../instrumented/utils'
 
 describe('unsnip', () => {
   beforeEach(() => {
@@ -12,13 +13,13 @@ describe('unsnip', () => {
       const paragraph = $paragraph.get()[0]
       const originalText = paragraph.textContent
 
-      snipByJS(paragraph, getMockState(paragraph, { lines: 2 }))
+      setState(paragraph, getMockState(paragraph, { lines: 2, method: 'js' }))
+      snipByJS(paragraph, getState(paragraph))
       expect(paragraph.textContent).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earum eius error expedita fuga illum iste iure minima nobis, odio praesentium quae quas ullam ve.\u200A.\u200A.')
 
       unsnip(paragraph)
       expect(getLines(paragraph)).to.equal(7)
       expect(paragraph.textContent).to.equal(originalText)
-      expect(paragraph.dataset.fullText).to.equal(undefined)
       expect(paragraph.style.display).to.equal('')
       expect(paragraph.style.webkitLineClamp).to.equal('')
       expect(paragraph.style.webkitBoxOrient).to.equal('')
@@ -31,13 +32,13 @@ describe('unsnip', () => {
       const paragraph = $paragraph.get()[0]
       const originalText = paragraph.textContent
 
-      snipByCSS(paragraph, getMockState(paragraph, { lines: 2 }))
+      setState(paragraph, getMockState(paragraph, { lines: 2 }))
+      snipByCSS(paragraph, getState(paragraph))
       expect(getLines(paragraph)).to.equal(2)
 
       unsnip(paragraph)
       expect(getLines(paragraph)).to.equal(7)
       expect(paragraph.textContent).to.equal(originalText)
-      expect(paragraph.dataset.fullText).to.equal(undefined)
       expect(paragraph.style.display).to.equal('')
       expect(paragraph.style.webkitLineClamp).to.equal('')
       expect(paragraph.style.webkitBoxOrient).to.equal('')
