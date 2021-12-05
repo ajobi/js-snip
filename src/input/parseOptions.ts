@@ -3,7 +3,7 @@ import { defaultOptions } from '../defaultOptions'
 import { parseMethod, parseLines, parseEllipsis, parseMidWord } from './index'
 
 export const parseOptions = (options: unknown): SnipOptions => {
-  if (typeof options !== 'object') {
+  if (typeof options !== 'object' || options === null) {
     return defaultOptions
   }
 
