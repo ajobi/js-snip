@@ -15,13 +15,13 @@ export const snip: Snip = (element, options) => {
   elState = {
     ...elState,
     ...parseOptions(options),
-    fullText: isFirstSnip ? element.textContent : prevFullText
+    fullText: isFirstSnip ? element.textContent : prevFullText,
   }
 
   setState(element, elState)
 
   const needsObserver = elState.method === 'js' && typeof ResizeObserver !== 'undefined'
-  const needsSnipping = (prevLines !== elState.lines) || (prevMethod !== elState.method && elState.method === 'css')
+  const needsSnipping = prevLines !== elState.lines || (prevMethod !== elState.method && elState.method === 'css')
 
   if (isFirstSnip) {
     needsObserver ? addObserver(element) : snipText(element)

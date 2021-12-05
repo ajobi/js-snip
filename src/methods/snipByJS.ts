@@ -1,4 +1,4 @@
-import { getLines, getState } from '../utils'
+import { getLines } from '../utils'
 import { ElementState } from '../utils/elementState'
 
 export const snipByJS = (element: HTMLElement, state: ElementState): void => {
@@ -18,10 +18,10 @@ export const snipByJS = (element: HTMLElement, state: ElementState): void => {
 
   const snipProgress = {
     unprocessed: fullText,
-    processed: ''
+    processed: '',
   }
 
-  separators.forEach(separator => {
+  separators.forEach((separator) => {
     for (const chunk of snipProgress.unprocessed.split(separator)) {
       element.textContent = `${snipProgress.processed}${chunk}${separator}${ellipsis}`
 

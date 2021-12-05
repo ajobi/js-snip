@@ -15,7 +15,9 @@ describe('unsnip', () => {
 
       setState(paragraph, getMockState(paragraph, { lines: 2, method: 'js' }))
       snipByJS(paragraph, getState(paragraph))
-      expect(paragraph.textContent).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earum eius error expedita fuga illum iste iure minima nobis, odio praesentium quae quas ullam ve.\u200A.\u200A.')
+      expect(paragraph.textContent).to.equal(
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earum eius error expedita fuga illum iste iure minima nobis, odio praesentium quae quas ullam ve.\u200A.\u200A.'
+      )
 
       unsnip(paragraph)
       expect(getLines(paragraph)).to.equal(7)

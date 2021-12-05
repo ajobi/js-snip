@@ -13,6 +13,6 @@ export const parseOptions = (options: unknown): SnipOptions => {
     method: method !== undefined ? parseMethod(method) : defaultOptions.method,
     lines: lines !== undefined ? parseLines(lines) : defaultOptions.lines,
     ellipsis: ellipsis !== undefined ? parseEllipsis(ellipsis) : defaultOptions.ellipsis,
-    midWord: midWord !== undefined ? parseMidWord(midWord) : defaultOptions.midWord
+    midWord: midWord !== undefined ? parseMidWord(midWord) : defaultOptions.midWord,
   }
 }

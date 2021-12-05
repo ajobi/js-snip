@@ -11,7 +11,7 @@ const plugins = [
   nodeResolve({ extensions: ['.ts'] }),
   babel({ babelHelpers: 'bundled', extensions: ['.ts'] }),
   terser(),
-  ...(process.env.NODE_ENV === 'development' ? [serve({ port: 3000, contentBase: 'docs', open: true })] : [])
+  ...(process.env.NODE_ENV === 'development' ? [serve({ port: 3000, contentBase: 'docs', open: true })] : []),
 ]
 
 export default [
@@ -20,27 +20,27 @@ export default [
     output: [
       {
         file: pkg.module,
-        format: 'esm'
+        format: 'esm',
       },
       {
         file: pkg.main,
         format: 'umd',
-        name: 'JsSnip'
+        name: 'JsSnip',
       },
       {
         file: pkg.main.replace('dist', 'docs'),
         format: 'umd',
-        name: 'JsSnip'
-      }
+        name: 'JsSnip',
+      },
     ],
-    plugins: plugins
+    plugins: plugins,
   },
   {
     input,
     output: {
       file: 'dist/index.d.ts',
-      format: 'esm'
+      format: 'esm',
     },
-    plugins: [dts()]
-  }
+    plugins: [dts()],
+  },
 ]
