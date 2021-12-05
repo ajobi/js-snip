@@ -3,16 +3,16 @@ import { snipByCSS } from './snipByCSS'
 import { snipByJS } from './snipByJS'
 
 export const snipText = (element: HTMLElement): void => {
-  const elementState = getState(element)
+  const state = getState(element)
 
-  if (elementState.method === 'css') {
-    snipByCSS(element)
+  if (state.method === 'css') {
+    snipByCSS(element, state)
     return
   }
 
-  if (elementState.method === 'js') {
-    snipByJS(element)
-    elementState.prevWidth = element.clientWidth
-    elementState.prevHeight = element.clientHeight
+  if (state.method === 'js') {
+    snipByJS(element, state)
+    state.prevWidth = element.clientWidth
+    state.prevHeight = element.clientHeight
   }
 }

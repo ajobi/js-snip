@@ -1,6 +1,6 @@
 import { SnipOptions } from '../types'
 
-interface ElementState extends SnipOptions {
+export interface ElementState extends SnipOptions {
   prevWidth?: number
   prevHeight?: number
   observer?: ResizeObserver

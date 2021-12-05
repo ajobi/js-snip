@@ -1,5 +1,13 @@
 import { getLines } from '../../instrumented'
 import { snipByCSS } from '../../instrumented/methods'
+import { parseOptions } from '../../instrumented/input'
+import { SnipOptions } from '../../instrumented/types'
+import { ElementState } from '../../instrumented/utils/elementState'
+
+export const getMockState = (paragraph: HTMLElement, options: Partial<SnipOptions>): ElementState => ({
+  fullText: paragraph.textContent,
+  ...parseOptions(options)
+})
 
 describe('snipByCSS', () => {
   beforeEach(() => {
@@ -11,7 +19,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       const oldLines = getLines(paragraph)
 
-      snipByCSS(paragraph, { lines: -1 })
+      snipByCSS(paragraph, getMockState(paragraph, { lines: -1 }))
 
       expect(getLines(paragraph)).to.equal(oldLines)
     })
@@ -22,7 +30,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       const oldLines = getLines(paragraph)
 
-      snipByCSS(paragraph, { lines: 0 })
+      snipByCSS(paragraph, getMockState(paragraph, { lines: 0 }))
 
       expect(getLines(paragraph)).to.equal(oldLines)
     })
@@ -31,7 +39,7 @@ describe('snipByCSS', () => {
   it('Snips on 1 max lines', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      snipByCSS(paragraph, { lines: 1 })
+      snipByCSS(paragraph, getMockState(paragraph, { lines: 1 }))
 
       expect(getLines(paragraph)).to.equal(1)
     })
@@ -40,7 +48,7 @@ describe('snipByCSS', () => {
   it('Snips on 2 max lines', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      snipByCSS(paragraph, { lines: 2 })
+      snipByCSS(paragraph, getMockState(paragraph, { lines: 2 }))
 
       expect(getLines(paragraph)).to.equal(2)
     })
@@ -51,7 +59,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       const oldLines = getLines(paragraph)
 
-      snipByCSS(paragraph, { lines: 10 })
+      snipByCSS(paragraph, getMockState(paragraph, { lines: 10 }))
 
       expect(getLines(paragraph)).to.equal(oldLines)
     })
@@ -62,7 +70,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       const originalColor = paragraph.style.color
 
-      snipByCSS(paragraph, { lines: 2 })
+      snipByCSS(paragraph, getMockState(paragraph, { lines: 2 }))
 
       expect(paragraph.style.color).to.equal(originalColor)
     })

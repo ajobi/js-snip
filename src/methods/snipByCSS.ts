@@ -1,8 +1,8 @@
-import { getState } from '../utils'
+import { ElementState } from '../utils/elementState'
 
 // https://css-tricks.com/almanac/properties/l/line-clamp/
-export const snipByCSS = (element: HTMLElement): void => {
-  const { lines, fullText } = getState(element)
+export const snipByCSS = (element: HTMLElement, state: ElementState): void => {
+  const { lines, fullText } = state
 
   element.textContent = fullText
   element.style.display = '-webkit-box'
