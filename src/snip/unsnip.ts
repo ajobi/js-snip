@@ -1,8 +1,9 @@
 import { Unsnip } from '../types'
 import { destroyObserver } from '../observer'
+import { deleteState, getState } from '../utils'
 
 export const unsnip: Unsnip = (element) => {
-  const elState = window.__JsSnipState.get(element)
+  const elState = getState(element)
 
   element.textContent = elState.fullText
   element.style.display = ''
@@ -11,5 +12,5 @@ export const unsnip: Unsnip = (element) => {
   element.style.overflow = ''
 
   destroyObserver(element)
-  window.__JsSnipState.delete(element)
+  deleteState(element)
 }
