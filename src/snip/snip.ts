@@ -1,8 +1,8 @@
 import { Snip } from '../types'
-import { defaultOptions } from '../defaultOptions'
 import { addObserver, destroyObserver } from '../observer'
 import { getState, hasState, setState } from '../utils'
 import { snipText } from '../methods'
+import { parseOptions } from '../input'
 
 export const snip: Snip = (element, options) => {
   const isFirstSnip = !hasState(element)
@@ -13,9 +13,8 @@ export const snip: Snip = (element, options) => {
   const prevFullText = elState?.fullText
 
   elState = {
-    ...defaultOptions,
     ...elState,
-    ...options,
+    ...parseOptions(options),
     fullText: isFirstSnip ? element.textContent : prevFullText
   }
 
