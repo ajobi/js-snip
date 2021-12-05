@@ -2,9 +2,10 @@ import { Snip } from '../types'
 import { defaultOptions } from '../defaultOptions'
 import { snipByCSS, snipByJS } from '../methods'
 import { addObserver, destroyObserver } from '../observer'
+import { getState, hasState, setState } from '../utils'
 
 export const snipText = (element: HTMLElement): void => {
-  const elementState = window.__JsSnipState.get(element)
+  const elementState = getState(element)
 
   if (elementState.method === 'css') {
     snipByCSS(element, elementState)
@@ -19,27 +20,21 @@ export const snipText = (element: HTMLElement): void => {
 }
 
 export const snip: Snip = (element, options) => {
-  if (!window.__JsSnipState) {
-    window.__JsSnipState = new WeakMap()
-  }
+  const isFirstSnip = !hasState(element)
+  let elState = getState(element)
 
-  let elState = (window.__JsSnipState.get(element) || {})
-
-  const prevMaxlines = elState.maxLines
-  const prevMethod = elState.method
+  const prevMaxlines = elState?.maxLines
+  const prevMethod = elState?.method
+  const prevFullText = elState?.fullText
 
   elState = {
     ...defaultOptions,
     ...elState,
-    ...options
+    ...options,
+    fullText: isFirstSnip ? element.textContent : prevFullText
   }
 
-  const isFirstSnip = !window.__JsSnipState.get(element)
-  if (isFirstSnip) {
-    elState.fullText = element.textContent
-  }
-
-  window.__JsSnipState.set(element, elState)
+  setState(element, elState)
 
   const needsObserver = elState.method === 'js'
   const needsSnipping = (prevMaxlines !== elState.maxLines) || (prevMethod !== elState.method && elState.method === 'css')
