@@ -36,13 +36,13 @@ export const snip: Snip = (element, options) => {
 
   setState(element, elState)
 
-  const needsObserver = elState.method === 'js'
+  const needsObserver = elState.method === 'js' && typeof ResizeObserver !== 'undefined'
   const needsSnipping = (prevLines !== elState.lines) || (prevMethod !== elState.method && elState.method === 'css')
 
   if (isFirstSnip) {
-    needsObserver && typeof ResizeObserver !== 'undefined' ? addObserver(element) : snipText(element)
+    needsObserver ? addObserver(element) : snipText(element)
   } else {
-    needsObserver && typeof ResizeObserver !== 'undefined' ? addObserver(element) : destroyObserver(element)
+    needsObserver ? addObserver(element) : destroyObserver(element)
     needsSnipping && snipText(element)
   }
 }
