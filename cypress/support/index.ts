@@ -23,5 +23,9 @@ import '@cypress/code-coverage/support'
 
 // https://github.com/quasarframework/quasar/issues/2233#issuecomment-656554190
 Cypress.on('uncaught:exception', (err) => {
-  return !err.message.includes('ResizeObserver')
+  return !err.message.includes('ResizeObserver loop limit exceeded')
 })
+//
+// Cypress.on('fail', (err) => {
+//   return !err.message.includes('ResizeObserver loop limit exceeded')
+// })
