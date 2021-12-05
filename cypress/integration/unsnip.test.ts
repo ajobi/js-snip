@@ -11,7 +11,7 @@ describe('unsnip', () => {
       const paragraph = $paragraph.get()[0]
       const originalText = paragraph.textContent
 
-      snipByJS(paragraph, { maxLines: 2 })
+      snipByJS(paragraph, { lines: 2 })
       expect(paragraph.textContent).to.equal('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aut, consectetur earum eius error expedita fuga illum iste iure minima nobis, odio praesentium quae quas ullam ve.\u200A.\u200A.')
 
       unsnip(paragraph)
@@ -30,7 +30,7 @@ describe('unsnip', () => {
       const paragraph = $paragraph.get()[0]
       const originalText = paragraph.textContent
 
-      snipByCSS(paragraph, { maxLines: 2 })
+      snipByCSS(paragraph, { lines: 2 })
       expect(getLines(paragraph)).to.equal(2)
 
       unsnip(paragraph)
