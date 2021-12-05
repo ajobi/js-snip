@@ -11,7 +11,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       const oldLines = getLines(paragraph)
 
-      snipByCSS(paragraph, { maxLines: -1 })
+      snipByCSS(paragraph, { lines: -1 })
 
       expect(getLines(paragraph)).to.equal(oldLines)
     })
@@ -22,7 +22,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       const oldLines = getLines(paragraph)
 
-      snipByCSS(paragraph, { maxLines: 0 })
+      snipByCSS(paragraph, { lines: 0 })
 
       expect(getLines(paragraph)).to.equal(oldLines)
     })
@@ -31,7 +31,7 @@ describe('snipByCSS', () => {
   it('Snips on 1 max lines', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      snipByCSS(paragraph, { maxLines: 1 })
+      snipByCSS(paragraph, { lines: 1 })
 
       expect(getLines(paragraph)).to.equal(1)
     })
@@ -40,7 +40,7 @@ describe('snipByCSS', () => {
   it('Snips on 2 max lines', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
-      snipByCSS(paragraph, { maxLines: 2 })
+      snipByCSS(paragraph, { lines: 2 })
 
       expect(getLines(paragraph)).to.equal(2)
     })
@@ -51,7 +51,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       const oldLines = getLines(paragraph)
 
-      snipByCSS(paragraph, { maxLines: 10 })
+      snipByCSS(paragraph, { lines: 10 })
 
       expect(getLines(paragraph)).to.equal(oldLines)
     })
@@ -62,7 +62,7 @@ describe('snipByCSS', () => {
       const paragraph = $paragraph.get()[0]
       const originalColor = paragraph.style.color
 
-      snipByCSS(paragraph, { maxLines: 2 })
+      snipByCSS(paragraph, { lines: 2 })
 
       expect(paragraph.style.color).to.equal(originalColor)
     })
