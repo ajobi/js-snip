@@ -7,5 +7,5 @@ export const parseMaxLines = (lines: unknown): number => {
     return parsedMaxLines
   }
 
-  return defaultOptions.maxLines
+  return defaultOptions.lines
 }

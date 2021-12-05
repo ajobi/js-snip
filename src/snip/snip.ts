@@ -8,12 +8,12 @@ export const snipText = (element: HTMLElement): void => {
   const elementState = getState(element)
 
   if (elementState.method === 'css') {
-    snipByCSS(element, elementState)
+    snipByCSS(element)
     return
   }
 
   if (elementState.method === 'js') {
-    snipByJS(element, elementState)
+    snipByJS(element)
     elementState.prevWidth = element.clientWidth
     elementState.prevHeight = element.clientHeight
   }
@@ -23,7 +23,7 @@ export const snip: Snip = (element, options) => {
   const isFirstSnip = !hasState(element)
   let elState = getState(element)
 
-  const prevMaxlines = elState?.maxLines
+  const prevLines = elState?.lines
   const prevMethod = elState?.method
   const prevFullText = elState?.fullText
 
@@ -37,7 +37,7 @@ export const snip: Snip = (element, options) => {
   setState(element, elState)
 
   const needsObserver = elState.method === 'js'
-  const needsSnipping = (prevMaxlines !== elState.maxLines) || (prevMethod !== elState.method && elState.method === 'css')
+  const needsSnipping = (prevLines !== elState.lines) || (prevMethod !== elState.method && elState.method === 'css')
 
   if (isFirstSnip) {
     needsObserver && typeof ResizeObserver !== 'undefined' ? addObserver(element) : snipText(element)
