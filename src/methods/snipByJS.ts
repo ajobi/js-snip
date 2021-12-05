@@ -1,7 +1,8 @@
 import { getLines, getState } from '../utils'
+import { ElementState } from '../utils/elementState'
 
-export const snipByJS = (element: HTMLElement): void => {
-  const { lines, midWord, fullText, ellipsis } = getState(element)
+export const snipByJS = (element: HTMLElement, state: ElementState): void => {
+  const { lines, midWord, fullText, ellipsis } = state
 
   const separators = midWord ? ['. ', ', ', ' ', ''] : ['. ', ', ', ' ']
 
