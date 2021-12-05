@@ -21,7 +21,7 @@ describe('parseLines', () => {
     expect(parseLines('3.7text')).to.equal(3)
   })
 
-  it('returns default maxLines on non-parseable value', () => {
-    expect(parseLines('text')).to.equal(defaultOptions.maxLines)
+  it('returns default lines on non-parseable value', () => {
+    expect(parseLines('text')).to.equal(defaultOptions.lines)
   })
 })
