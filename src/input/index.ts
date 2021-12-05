@@ -1,2 +1,5 @@
-export { parseMaxLines } from './parseMaxLines'
+export { parseLines } from './parseLines'
 export { parseMethod } from './parseMethod'
+export { parseEllipsis } from './parseEllipsis'
+export { parseMidWord } from './parseMidWord'
+export { parseOptions } from './parseOptions'

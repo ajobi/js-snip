@@ -1,6 +1,6 @@
 import { defaultOptions } from '../defaultOptions'
 
-export const parseMaxLines = (lines: unknown): number => {
+export const parseLines = (lines: unknown): number => {
   const parsedMaxLines = parseInt(lines.toString())
 
   if (!isNaN(parsedMaxLines)) {
