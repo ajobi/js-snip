@@ -9,9 +9,11 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
+    'prettier',
     '@typescript-eslint'
   ],
   extends: [
+    'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:cypress/recommended',
     'plugin:js-snip/recommended',
