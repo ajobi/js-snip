@@ -17,6 +17,8 @@ Universal JavaScript library for clamping HTML text elements.
 
 ![](assets/illustration.png)
 
+To get a hands-on experience try the [Interactive Demo](https://ajobi.github.io/js-snip/).
+
 ## Installation
 
 ```bash
