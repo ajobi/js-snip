@@ -105,29 +105,29 @@
         }
       },
       code: function () {
-        return this.isSnipped ? `snip(paragraph, { method: '${this.method}', lines: ${this.lines} })` : `unsnip(paragraph)`
+        return this.isSnipped ? "snip(paragraph, { method: '" + this.method + "', lines: " + this.lines + " })" : 'unsnip(paragraph)'
       },
     },
-    mounted() {
+    mounted: function () {
       this.snip()
     },
     watch: {
-      isSnipped (newValue) {
+      isSnipped: function (newValue) {
         newValue ? this.snip() : this.unsnip()
       },
-      lines () {
+      lines: function () {
         this.snip()
       },
-      method () {
+      method: function () {
         this.snip()
       }
     },
     methods: {
-      snip () {
+      snip: function () {
         const paragraph = document.querySelector('#paragraph')
         JsSnip.snip(paragraph, { method: this.method, lines: this.lines })
       },
-      unsnip () {
+      unsnip: function () {
         const paragraph = document.querySelector('#paragraph')
         JsSnip.unsnip(paragraph)
       }
