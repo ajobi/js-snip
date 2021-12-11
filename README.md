@@ -73,5 +73,15 @@ For the library to be able to determine the number of lines / hide the text-over
 
 *Note: You can still use the directive with flexbox, just make sure to change the default `align-items` / `align-self` value to `flex-start` or whatever fits your case.*
 
+## IE11 Support
+
+IE11 does not support `-webkit-line-clamp` (falls back to the JS method), and the `ResizeObserver API`. This API needs to be polyfilled if you want to re-snip the elements on the resize in IE11 (they would still get snipped when inserted / on data change without the polyfill). Recommended: [@juggle/resize-observer](https://www.npmjs.com/package/@juggle/resize-observer)
+
+``` javascript
+import { ResizeObserver as Polyfill } from '@juggle/resize-observer';
+ 
+window.ResizeObserver = window.ResizeObserver || Polyfill;
+```
+
 ## Change Log
 All changes are documented in the [change log](https://github.com/ajobi/js-snip/blob/master/CHANGELOG.md).
