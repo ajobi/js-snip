@@ -7,6 +7,7 @@ export const isSnipped = (element: HTMLElement): boolean => {
     return elState.fullText === element.textContent
   }
 
+  // TODO: implement by comparing the line counts
   if (elState?.method === 'css') {
     return false
   }
