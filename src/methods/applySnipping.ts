@@ -3,7 +3,7 @@ import { snipByCSS } from './snipByCSS'
 import { snipByJS } from './snipByJS'
 import { unsnipElement } from '../snip/unsnip'
 
-export const snipText = (element: HTMLElement): void => {
+export const applySnipping = (element: HTMLElement): void => {
   const state = getState(element)
 
   unsnipElement(element)
