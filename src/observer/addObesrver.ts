@@ -8,8 +8,10 @@ export const addObserver = (element: HTMLElement, onResize: () => void): void =>
     new ResizeObserver(() => {
       if (element.clientWidth !== state.prevWidth || element.clientHeight !== state.prevHeight) {
         onResize()
-        state.prevWidth = element.clientWidth
-        state.prevHeight = element.clientHeight
+        const newState = { ...getState(element) }
+        newState.prevWidth = element.clientWidth
+        newState.prevHeight = element.clientHeight
+        setState(element, newState)
       }
     })
 
