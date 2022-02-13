@@ -43,6 +43,10 @@
           <input id="input-snip" type="checkbox" v-model="isSnipped">
           <i class="form-icon"></i> Snip the card text
         </label>
+        <label for="input-more" class="form-checkbox">
+          <input id="input-more" type="checkbox" v-model="hasReadMore" :disabled="!isSnipped">
+          <i class="form-icon"></i> Show read more
+        </label>
         <label for="input-float" class="form-checkbox">
           <input id="input-float" type="checkbox" v-model="floatElement">
           <i class="form-icon"></i> Show floated element
@@ -64,6 +68,7 @@
         supporting object-oriented, imperative, and declarative (e.g. functional programming) styles. JavaScript is the
         world's most popular programming language.
       </p>
+      <button class="btn btn-primary mt-2 text-dark" v-if="hasReadMore && isSnipped && hasEllipsis" @click="isSnipped = false">Read more</button>
     </div>
     <div class="card-footer" v-if="tip">
       <span class="toast toast-primary text-dark" ><i>{{ tip }}</i></span>
@@ -82,6 +87,8 @@
         method: 'css',
         floatElement: false,
         width: 500,
+        hasReadMore: true,
+        hasEllipsis: false
       }
     },
     computed: {
@@ -125,8 +132,8 @@
     methods: {
       snip: function () {
         const paragraph = document.querySelector('#paragraph')
-        JsSnip.snip(paragraph, { method: this.method, lines: this.lines }, (newState, oldState) => {
-          console.log(newState, oldState)
+        JsSnip.snip(paragraph, { method: this.method, lines: this.lines }, (newState) => {
+          this.hasEllipsis = newState.hasEllipsis
         })
       },
       unsnip: function () {
