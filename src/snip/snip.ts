@@ -25,6 +25,7 @@ export const snip: Snip = (element, options, onStateChanged) => {
   if (typeof ResizeObserver !== 'undefined') {
     destroyObserver(element)
     addObserver(element, snip)
+    return
   }
 
   snip()

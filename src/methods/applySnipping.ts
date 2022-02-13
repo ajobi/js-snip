@@ -17,5 +17,7 @@ export const applySnipping = (element: HTMLElement): void => {
     snipByJS(element, state)
   }
 
+  console.log('Snipping')
+
   state.hasEllipsis = getLines(element) < linesBefore
 }

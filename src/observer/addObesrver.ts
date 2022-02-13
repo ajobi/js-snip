@@ -8,7 +8,6 @@ export const addObserver = (element: HTMLElement, onResize: () => void): void =>
     new ResizeObserver(() => {
       if (element.clientWidth !== state.prevWidth || element.clientHeight !== state.prevHeight) {
         onResize()
-        // TODO: fix the double snipping in some corner cases
         state.prevWidth = element.clientWidth
         state.prevHeight = element.clientHeight
       }
