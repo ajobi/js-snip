@@ -9,6 +9,7 @@ export interface ElementState extends SnipOptions, SnipState {
 
 const elementMap: WeakMap<HTMLElement, ElementState> = new WeakMap()
 
+// TODO: consider forwarding only the copy of the state
 export const getState = (element: HTMLElement): ElementState => {
   return elementMap.get(element)
 }
