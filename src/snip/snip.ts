@@ -14,5 +14,9 @@ export const snip: Snip = (element, options) => {
     fullText: isFirstSnip ? element.textContent : elState?.fullText,
   })
 
-  isFirstSnip && typeof ResizeObserver !== 'undefined' ? addObserver(element) : applySnipping(element)
+  const onElementResize = () => {
+    applySnipping(element)
+  }
+
+  isFirstSnip && typeof ResizeObserver !== 'undefined' ? addObserver(element, onElementResize) : applySnipping(element)
 }
