@@ -17,10 +17,9 @@ export const snipText = (element: HTMLElement): void => {
     snipByJS(element, state)
   }
 
+  console.log('Snipping')
+
   const linesAfter = getLines(element)
 
   console.log(linesAfter, linesBefore)
-
-  state.prevWidth = element.clientWidth
-  state.prevHeight = element.clientHeight
 }

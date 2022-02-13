@@ -1,17 +1,20 @@
 import { snipText } from '../methods'
 import { getState } from '../utils'
 
-export const addObserver = (el: HTMLElement): void => {
-  const elState = getState(el)
+export const addObserver = (element: HTMLElement): void => {
+  const state = getState(element)
 
   const observer =
-    elState.observer ||
+    state.observer ||
     new ResizeObserver(() => {
-      if (el.clientWidth !== elState.prevWidth || el.clientHeight !== elState.prevHeight) {
-        snipText(el)
+      if (element.clientWidth !== state.prevWidth || element.clientHeight !== state.prevHeight) {
+        snipText(element)
+        // TODO: fix the double snipping in some corner cases
+        state.prevWidth = element.clientWidth
+        state.prevHeight = element.clientHeight
       }
     })
 
-  observer.observe(el)
-  elState.observer = observer
+  observer.observe(element)
+  state.observer = observer
 }
