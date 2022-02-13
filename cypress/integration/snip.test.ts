@@ -34,7 +34,7 @@ describe('snip', () => {
       cy.get('[data-cy=paragraph]').then(($paragraph) => {
         const paragraph = $paragraph.get()[0]
 
-        snip(paragraph)
+        snip(paragraph, { lines: 1, method: 'css' })
         expect(getLines(paragraph)).to.equal(1)
 
         snip(paragraph, { lines: 2, method: 'css' })
