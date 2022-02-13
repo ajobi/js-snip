@@ -39,7 +39,8 @@ export const snip: Snip = (element, options, onStateChanged) => {
 
     const newState = getPublicState(element)
 
-    if (newState.hasEllipsis !== oldState.hasEllipsis) {
+    // TODO: add a test for undefined on state changed
+    if (onStateChanged && newState.hasEllipsis !== oldState.hasEllipsis) {
       onStateChanged(newState, oldState)
     }
   }
