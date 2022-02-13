@@ -4,6 +4,7 @@ import { getState, hasState, setState, getPublicState } from '../utils'
 import { applySnipping } from '../methods'
 import { parseOptions } from '../input'
 
+// TODO: add the posibility to change of onStateChanged callback
 export const snip: Snip = (element, options, onStateChanged) => {
   const isFirstSnip = !hasState(element)
   const elState = getState(element)
