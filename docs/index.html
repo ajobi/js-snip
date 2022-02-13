@@ -125,8 +125,8 @@
     methods: {
       snip: function () {
         const paragraph = document.querySelector('#paragraph')
-        JsSnip.snip(paragraph, { method: this.method, lines: this.lines }, (newState) => {
-          console.log(newState)
+        JsSnip.snip(paragraph, { method: this.method, lines: this.lines }, (newState, oldState) => {
+          console.log(newState, oldState)
         })
       },
       unsnip: function () {
