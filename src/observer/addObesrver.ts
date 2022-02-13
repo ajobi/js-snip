@@ -8,7 +8,6 @@ export const addObserver = (el: HTMLElement): void => {
     elState.observer ||
     new ResizeObserver(() => {
       if (el.clientWidth !== elState.prevWidth || el.clientHeight !== elState.prevHeight) {
-        console.log('Snipping')
         snipText(el)
       }
     })

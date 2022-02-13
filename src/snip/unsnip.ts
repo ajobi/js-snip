@@ -2,7 +2,7 @@ import { Unsnip } from '../types'
 import { destroyObserver } from '../observer'
 import { deleteState, getState } from '../utils'
 
-export const unsnip: Unsnip = (element) => {
+export const unsnipElement: Unsnip = (element) => {
   const elState = getState(element)
 
   element.textContent = elState?.fullText ?? element.textContent
@@ -10,6 +10,10 @@ export const unsnip: Unsnip = (element) => {
   element.style.webkitLineClamp = ''
   element.style.webkitBoxOrient = ''
   element.style.overflow = ''
+}
+
+export const unsnip: Unsnip = (element) => {
+  unsnipElement(element)
 
   destroyObserver(element)
   deleteState(element)
