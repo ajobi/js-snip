@@ -1,8 +1,8 @@
 import { defaultOptions } from '../defaultOptions'
 import { supportsCSSMethod } from '../utils'
-import { SnipMethod } from '../types'
+import { SnippingMethod } from '../types'
 
-export const parseMethod = (method: unknown): SnipMethod => {
+export const parseMethod = (method: unknown): SnippingMethod => {
   if (!supportsCSSMethod()) {
     return 'js'
   }
