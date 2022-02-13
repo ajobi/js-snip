@@ -1,9 +1,13 @@
-import { getState } from '../utils'
+import { getLines, getState } from '../utils'
 import { snipByCSS } from './snipByCSS'
 import { snipByJS } from './snipByJS'
+import { unsnipElement } from '../snip/unsnip'
 
 export const snipText = (element: HTMLElement): void => {
   const state = getState(element)
+
+  unsnipElement(element)
+  const linesBefore = getLines(element)
 
   if (state.method === 'css') {
     snipByCSS(element, state)
@@ -12,6 +16,10 @@ export const snipText = (element: HTMLElement): void => {
   if (state.method === 'js') {
     snipByJS(element, state)
   }
+
+  const linesAfter = getLines(element)
+
+  console.log(linesAfter, linesBefore)
 
   state.prevWidth = element.clientWidth
   state.prevHeight = element.clientHeight
