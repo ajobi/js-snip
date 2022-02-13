@@ -24,3 +24,11 @@ export const hasState = (element: HTMLElement): boolean => {
 export const deleteState = (element: HTMLElement): void => {
   elementMap.delete(element)
 }
+
+export const getPublicState = (element: HTMLElement): SnipState => {
+  const { hasEllipsis } = getState(element)
+
+  return {
+    hasEllipsis,
+  }
+}
