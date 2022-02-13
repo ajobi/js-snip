@@ -11,13 +11,14 @@ export const snip: Snip = (element, options, onStateChanged) => {
   setState(element, {
     ...elState,
     ...parseOptions(options),
+    hasEllipsis: isFirstSnip ? false : elState?.hasEllipsis,
     fullText: isFirstSnip ? element.textContent : elState?.fullText,
   })
 
   const onElementResize = () => {
     const oldState = getPublicState(element)
     applySnipping(element)
-    onStateChanged(oldState, getPublicState(element))
+    onStateChanged(getPublicState(element), oldState)
   }
 
   isFirstSnip && typeof ResizeObserver !== 'undefined' ? addObserver(element, onElementResize) : applySnipping(element)
