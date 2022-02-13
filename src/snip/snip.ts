@@ -32,8 +32,16 @@ export const snip: Snip = (element, options, onStateChanged) => {
       snipByJS(element, state)
     }
 
-    state.hasEllipsis = getLines(element) < linesBefore
-    onStateChanged(getPublicState(element), oldState)
+    setState(element, {
+      ...state,
+      hasEllipsis: getLines(element) < linesBefore,
+    })
+
+    const newState = getPublicState(element)
+
+    if (newState.hasEllipsis !== oldState.hasEllipsis) {
+      onStateChanged(newState, oldState)
+    }
   }
 
   if (typeof ResizeObserver !== 'undefined') {
