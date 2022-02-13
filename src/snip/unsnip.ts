@@ -3,9 +3,9 @@ import { destroyObserver } from '../observer'
 import { deleteState, getState } from '../utils'
 
 export const unsnipElement: Unsnip = (element) => {
-  const elState = getState(element)
+  const state = getState(element)
 
-  element.textContent = elState?.fullText ?? element.textContent
+  element.textContent = state?.fullText ?? element.textContent
   element.style.display = ''
   element.style.webkitLineClamp = ''
   element.style.webkitBoxOrient = ''

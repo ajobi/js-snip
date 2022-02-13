@@ -50,9 +50,9 @@ describe('addObserver', () => {
       setState(paragraph, getMockState(paragraph, {}))
 
       const snipText = cy.stub()
-      const elState = getState(paragraph)
-      elState.prevWidth = paragraph.clientWidth
-      elState.prevHeight = paragraph.clientHeight
+      const state = getState(paragraph)
+      state.prevWidth = paragraph.clientWidth
+      state.prevHeight = paragraph.clientHeight
       addObserver(paragraph)
 
       // eslint-disable-next-line cypress/no-unnecessary-waiting

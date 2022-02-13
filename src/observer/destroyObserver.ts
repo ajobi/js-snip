@@ -1,10 +1,10 @@
 import { getState } from '../utils'
 
-export const destroyObserver = (el: HTMLElement): void => {
-  const elState = getState(el)
+export const destroyObserver = (element: HTMLElement): void => {
+  const state = getState(element)
 
-  elState?.observer && elState?.observer.disconnect()
-  elState?.observer && delete elState?.prevWidth
-  elState?.observer && delete elState?.prevHeight
-  elState?.observer && delete elState?.observer
+  state?.observer && state?.observer.disconnect()
+  state?.observer && delete state?.prevWidth
+  state?.observer && delete state?.prevHeight
+  state?.observer && delete state?.observer
 }
