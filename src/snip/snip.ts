@@ -1,8 +1,9 @@
 import { Snip } from '../types'
 import { addObserver, destroyObserver } from '../observer'
-import { getState, hasState, setState, getPublicState } from '../utils'
-import { applySnipping } from '../methods'
+import { getState, hasState, setState, getPublicState, getLines } from '../utils'
+import { snipByCSS, snipByJS } from '../methods'
 import { parseOptions } from '../input'
+import { unsnipElement } from './unsnip'
 
 // TODO: add the tests for the posibility to change the onStateChanged callback
 export const snip: Snip = (element, options, onStateChanged) => {
@@ -16,17 +17,30 @@ export const snip: Snip = (element, options, onStateChanged) => {
     fullText: isFirstSnip ? element.textContent : state?.fullText,
   })
 
-  const snip = () => {
+  const applySnipping = (): void => {
     const oldState = getPublicState(element)
-    applySnipping(element)
+    const state = getState(element)
+
+    unsnipElement(element)
+    const linesBefore = getLines(element)
+
+    if (state.method === 'css') {
+      snipByCSS(element, state)
+    }
+
+    if (state.method === 'js') {
+      snipByJS(element, state)
+    }
+
+    state.hasEllipsis = getLines(element) < linesBefore
     onStateChanged(getPublicState(element), oldState)
   }
 
   if (typeof ResizeObserver !== 'undefined') {
     destroyObserver(element)
-    addObserver(element, snip)
+    addObserver(element, applySnipping)
     return
   }
 
-  snip()
+  applySnipping()
 }
