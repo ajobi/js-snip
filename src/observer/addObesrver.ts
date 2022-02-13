@@ -1,4 +1,4 @@
-import { getState } from '../utils'
+import { getState, setState } from '../utils'
 
 export const addObserver = (element: HTMLElement, onResize: () => void): void => {
   const state = getState(element)
@@ -14,5 +14,5 @@ export const addObserver = (element: HTMLElement, onResize: () => void): void =>
     })
 
   observer.observe(element)
-  state.observer = observer
+  setState(element, { ...state, observer })
 }
