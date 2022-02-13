@@ -7,12 +7,12 @@ export const snipText = (element: HTMLElement): void => {
 
   if (state.method === 'css') {
     snipByCSS(element, state)
-    return
   }
 
   if (state.method === 'js') {
     snipByJS(element, state)
-    state.prevWidth = element.clientWidth
-    state.prevHeight = element.clientHeight
   }
+
+  state.prevWidth = element.clientWidth
+  state.prevHeight = element.clientHeight
 }
