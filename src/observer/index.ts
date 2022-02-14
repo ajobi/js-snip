@@ -1,2 +1,2 @@
-export { addObserver } from './addObesrver'
+export { addObserver } from './addObserver'
 export { destroyObserver } from './destroyObserver'
