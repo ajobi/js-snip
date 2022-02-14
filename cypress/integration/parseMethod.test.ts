@@ -15,7 +15,10 @@ describe('parseMethod', () => {
   })
 
   it('returns default value on invalid snip method', () => {
-    expect(parseMethod('invalid')).to.equal(defaultOptions.method)
+    expect(parseMethod(null)).to.equal(defaultOptions.method)
+    expect(parseMethod(undefined)).to.equal(defaultOptions.method)
+    expect(parseMethod({})).to.equal(defaultOptions.method)
+    expect(parseMethod([])).to.equal(defaultOptions.method)
     expect(parseMethod('invalid')).to.equal(defaultOptions.method)
   })
 })

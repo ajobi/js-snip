@@ -11,8 +11,8 @@ describe('parseEllipsis', () => {
   })
 
   it('returns default ellipsis on non-parseable value', () => {
-    expect(parseEllipsis(undefined)).to.equal(defaultOptions.ellipsis)
     expect(parseEllipsis(null)).to.equal(defaultOptions.ellipsis)
+    expect(parseEllipsis(undefined)).to.equal(defaultOptions.ellipsis)
     expect(parseEllipsis({})).to.equal(defaultOptions.ellipsis)
     expect(parseEllipsis([])).to.equal(defaultOptions.ellipsis)
   })
