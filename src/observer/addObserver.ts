@@ -1,6 +1,6 @@
 import { getState, setState } from '../utils'
 
-export const addObserver = (element: HTMLElement, onResize: () => void): void => {
+export const addObserver = (element: HTMLElement, onResize?: () => void): void => {
   const state = getState(element)
 
   const observer =
