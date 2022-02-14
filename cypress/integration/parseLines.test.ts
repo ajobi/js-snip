@@ -22,6 +22,10 @@ describe('parseLines', () => {
   })
 
   it('returns default lines on non-parseable value', () => {
+    expect(parseLines(null)).to.equal(defaultOptions.lines)
+    expect(parseLines(undefined)).to.equal(defaultOptions.lines)
+    expect(parseLines({})).to.equal(defaultOptions.lines)
+    expect(parseLines([])).to.equal(defaultOptions.lines)
     expect(parseLines('text')).to.equal(defaultOptions.lines)
   })
 })
