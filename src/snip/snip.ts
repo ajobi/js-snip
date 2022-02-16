@@ -5,8 +5,8 @@ import { snipByCSS, snipByJS } from '../methods'
 import { parseOptions } from '../input'
 import { unsnipElement } from './unsnip'
 
-// TODO: add the tests for the posibility to change the onStateChanged callback
-export const snip: Snip = (element, options, onStateChanged) => {
+// TODO: add the tests for the posibility to change the onSnipped callback
+export const snip: Snip = (element, options, onSnipped) => {
   const isFirstSnip = !hasState(element)
   const state = getState(element)
 
@@ -39,9 +39,9 @@ export const snip: Snip = (element, options, onStateChanged) => {
 
     const newState = getPublicState(element)
 
-    // TODO: add a test for undefined on state changed
-    if (onStateChanged && newState.hasEllipsis !== oldState.hasEllipsis) {
-      onStateChanged(newState, oldState)
+    // TODO: add a test for undefined on snipped
+    if (onSnipped) {
+      onSnipped(newState, oldState)
     }
   }
 

@@ -15,7 +15,7 @@ export interface Snip {
   (
     element: HTMLElement,
     options?: Partial<Readonly<SnipOptions>>,
-    onStateChanged?: (newState: Readonly<SnipState>, oldState: Readonly<SnipState>) => void
+    onSnipped?: (newState: Readonly<SnipState>, oldState: Readonly<SnipState>) => void
   ): void
 }
 
