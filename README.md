@@ -34,12 +34,18 @@ yarn add js-snip
 ```typescript
 import { snip, unsnip } from 'js-snip'
 
+// element to be snipped
+const element = document.querySelector('p')
+
 const options = {
-  // your options
+  // your snipping options
 }
 
-// snipping an element
-snip(element, options)
+// snipping the element
+snip(element, options, (newState, oldState) => {
+  // optional "onSnipped" callback code
+  console.log(newState, oldState)
+})
 
 // unsnipping the element
 unsnip(element)
@@ -54,6 +60,17 @@ export interface SnipOptions {
   ellipsis?: string
   midWord?: boolean
 }
+```
+
+## Callback
+
+```typescript
+export interface SnipState {
+  hasEllipsis: boolean
+}
+
+// signature of the callback 
+(newState: Readonly<SnipState>, oldState: Readonly<SnipState>) => void
 ```
 
 ## How it works
