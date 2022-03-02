@@ -1,6 +1,9 @@
 import { SnipOptions } from '../types'
 import { defaultOptions } from '../defaultOptions'
-import { parseMethod, parseLines, parseEllipsis, parseMidWord } from './index'
+import { parseMethod } from './parseMethod'
+import { parseLines } from './parseLines'
+import { parseEllipsis } from './parseEllipsis'
+import { parseMidWord } from './parseMidWord'
 
 export const parseOptions = (options: unknown): SnipOptions => {
   if (typeof options !== 'object' || options === null) {
