@@ -4,9 +4,9 @@ import { defaultOptions } from '../../instrumented/defaultOptions'
 describe('parseOptions', () => {
   it('returns defaults for undefined values', () => {
     expect(parseOptions({})).to.deep.equal(defaultOptions)
-    expect(parseOptions({ method: 'js' })).to.deep.equal({
+    expect(parseOptions({ mode: 'js' })).to.deep.equal({
       ...defaultOptions,
-      method: 'js',
+      mode: 'js',
     })
     expect(parseOptions({ lines: 4 })).to.deep.equal({ ...defaultOptions, lines: 4 })
     expect(parseOptions({ midWord: false })).to.deep.equal({
@@ -17,16 +17,16 @@ describe('parseOptions', () => {
       ...defaultOptions,
       ellipsis: 'zzz',
     })
-    expect(parseOptions({ method: 'js', lines: 4 })).to.deep.equal({
+    expect(parseOptions({ mode: 'js', lines: 4 })).to.deep.equal({
       ...defaultOptions,
-      method: 'js',
+      mode: 'js',
       lines: 4,
     })
   })
 
   it('applies parsing to values', () => {
     expect(parseOptions({})).to.deep.equal(defaultOptions)
-    expect(parseOptions({ method: 'unknown method' })).to.deep.equal({
+    expect(parseOptions({ mode: 'unknown mode' })).to.deep.equal({
       ...defaultOptions,
     })
     expect(parseOptions({ lines: '4' })).to.deep.equal({ ...defaultOptions, lines: 4 })

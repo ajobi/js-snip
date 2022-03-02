@@ -10,7 +10,7 @@
 Universal JavaScript library for clamping HTML text elements.
 
 #### Key features:
-* two snipping approaches (CSS / JavaScript)
+* two snipping modes (CSS / JavaScript)
 * no need to specify line heights
 * re-snipping on element resize
 * no dependencies
@@ -49,7 +49,7 @@ unsnip(element)
 
 ```typescript
 export interface SnipOptions {
-  method?: 'css' | 'js'
+  mode?: 'css' | 'js'
   lines?: number
   ellipsis?: string
   midWord?: boolean
@@ -58,10 +58,10 @@ export interface SnipOptions {
 
 ## How it works
 
-- **CSS** approach is based on the `-webkit-line-clamp`.
-- **JavaScript** approach is based on the progressive cutting of the element's `textContent` in a loop.
+- **CSS** mode is based on the `-webkit-line-clamp`.
+- **JavaScript** mode is based on the progressive cutting of the element's `textContent` in a loop.
 
-*Note: CSS approach is faster (preferred), but does not work in older browsers / in all situations (f.e. does not work in IE11, when you need the text to flow around a floated element, or when you want a custom ellipsis).*
+*Note: CSS mode is faster (preferred), but does not work in older browsers / in all situations (f.e. does not work in IE11, when you need the text to flow around a floated element, or when you want a custom ellipsis).*
 
 ### Caveats
 
@@ -75,7 +75,7 @@ For the library to be able to determine the number of lines / hide the text-over
 
 ## IE11 Support
 
-IE11 does not support `-webkit-line-clamp` (falls back to the JS method), and the `ResizeObserver API`. This API needs to be polyfilled if you want to re-snip the elements on the resize in IE11 (they would still get snipped when inserted / on data change without the polyfill). Recommended: [@juggle/resize-observer](https://www.npmjs.com/package/@juggle/resize-observer)
+IE11 does not support `-webkit-line-clamp` (falls back to the JS mode), and the `ResizeObserver API`. This API needs to be polyfilled if you want to re-snip the elements on the resize in IE11 (they would still get snipped when inserted / on data change without the polyfill). Recommended: [@juggle/resize-observer](https://www.npmjs.com/package/@juggle/resize-observer)
 
 ``` javascript
 import { ResizeObserver as Polyfill } from '@juggle/resize-observer';
