@@ -1,3 +1,3 @@
 export { getLines } from './getLines'
-export { supportsCSSMethod } from './supportsCSSMethod'
+export { supportsCSSMode } from './supportsCSSMode'
 export { getState, setState, hasState, deleteState, getPublicState } from './elementState'

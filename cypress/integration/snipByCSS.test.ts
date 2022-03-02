@@ -1,5 +1,5 @@
 import { getLines } from '../../instrumented'
-import { snipByCSS } from '../../instrumented/methods'
+import { snipByCSS } from '../../instrumented/modes'
 import { parseOptions } from '../../instrumented/input'
 import { SnipOptions } from '../../instrumented/types'
 import { ElementState } from '../../instrumented/utils/elementState'

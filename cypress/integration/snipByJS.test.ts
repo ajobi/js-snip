@@ -1,4 +1,4 @@
-import { snipByJS } from '../../instrumented/methods'
+import { snipByJS } from '../../instrumented/modes'
 import { getMockState } from './snipByCSS.test'
 
 describe('snipByJS', () => {

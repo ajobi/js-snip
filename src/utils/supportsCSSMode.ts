@@ -1,4 +1,4 @@
-export const supportsCSSMethod = (): boolean =>
+export const supportsCSSMode = (): boolean =>
   typeof CSS !== 'undefined' &&
   CSS.supports('display', '-webkit-box') &&
   CSS.supports('-webkit-line-clamp', '3') &&

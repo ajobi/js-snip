@@ -24,8 +24,8 @@
       <input id="input-maxlines" type="number" v-model="lines" class="form-input col-7" :disabled="!isSnipped">
     </div>
     <div class="form-group">
-      <label for="input-method" class="form-label col-5">Snipping method:</label>
-      <select id="input-method" v-model="method" class="form-select col-7" :disabled="!isSnipped">
+      <label for="input-mode" class="form-label col-5">Snipping mode:</label>
+      <select id="input-mode" v-model="mode" class="form-select col-7" :disabled="!isSnipped">
         <option>css</option>
         <option>js</option>
       </select>
@@ -41,7 +41,7 @@
       <div class="col-7">
         <label for="input-snip" class="form-checkbox">
           <input id="input-snip" type="checkbox" v-model="isSnipped">
-          <i class="form-icon"></i> Snip the card text
+          <i class="form-icon"></i> Snip the card
         </label>
         <label for="input-more" class="form-checkbox">
           <input id="input-more" type="checkbox" v-model="hasReadMore" :disabled="!isSnipped">
@@ -84,7 +84,7 @@
       return {
         isSnipped: true,
         lines: 7,
-        method: 'css',
+        mode: 'css',
         floatElement: false,
         width: 500,
         hasReadMore: true,
@@ -97,22 +97,22 @@
           return null
         }
 
-        const isCSSUnsupported = !JsSnip.supportsCSSMethod()
+        const isCSSUnsupported = !JsSnip.supportsCSSMode()
 
-        if (this.method === 'css' && isCSSUnsupported) {
-          return 'Warning: The CSS method is not supported in this browser and automatically falls back to the JS method.'
+        if (this.mode === 'css' && isCSSUnsupported) {
+          return 'Warning: The CSS mode is not supported in this browser and automatically falls back to the JS mode.'
         }
 
-        if (this.method === 'css' && this.floatElement) {
-          return 'Tip: The CSS method cannot make the text flow around the floated element. Switch to the JS method for a better effect.'
+        if (this.mode === 'css' && this.floatElement) {
+          return 'Tip: The CSS mode cannot make the text flow around the floated element. Switch to the JS mode for a better effect.'
         }
 
-        if (this.method === 'js' && !this.floatElement && !isCSSUnsupported) {
-          return "Tip: You might be better off with the more performant CSS method if you don't use floats (or don't have other use case where the JS method would be required)."
+        if (this.mode === 'js' && !this.floatElement && !isCSSUnsupported) {
+          return "Tip: You might be better off with the more performant CSS mode if you don't use floats (or don't have other use case where the JS mode would be required)."
         }
       },
       code: function () {
-        return this.isSnipped ? "snip(paragraph, { method: '" + this.method + "', lines: " + this.lines + " })" : 'unsnip(paragraph)'
+        return this.isSnipped ? "snip(paragraph, { mode: '" + this.mode + "', lines: " + this.lines + " })" : 'unsnip(paragraph)'
       },
     },
     mounted: function () {
@@ -125,14 +125,14 @@
       lines: function () {
         this.snip()
       },
-      method: function () {
+      mode: function () {
         this.snip()
       }
     },
     methods: {
       snip: function () {
         const paragraph = document.querySelector('#paragraph')
-        JsSnip.snip(paragraph, { method: this.method, lines: this.lines }, (newState) => {
+        JsSnip.snip(paragraph, { mode: this.mode, lines: this.lines }, (newState) => {
           this.hasEllipsis = newState.hasEllipsis
         })
       },

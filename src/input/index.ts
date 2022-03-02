@@ -1,5 +1,5 @@
 export { parseLines } from './parseLines'
-export { parseMethod } from './parseMethod'
+export { parseMode } from './parseMode'
 export { parseEllipsis } from './parseEllipsis'
 export { parseMidWord } from './parseMidWord'
 export { parseOptions } from './parseOptions'

@@ -1,6 +1,6 @@
-import { supportsCSSMethod } from '../../instrumented'
+import { supportsCSSMode } from '../../instrumented'
 
-describe('supportsCSSMethod', () => {
+describe('supportsCSSMode', () => {
   const refCSS = window.CSS
 
   beforeEach(() => {
@@ -8,18 +8,18 @@ describe('supportsCSSMethod', () => {
   })
 
   it('returns true in modern browsers', () => {
-    expect(supportsCSSMethod()).to.equal(true)
+    expect(supportsCSSMode()).to.equal(true)
   })
 
   it('returns false if CSS API is unsupported', () => {
     window.CSS = undefined
 
-    expect(supportsCSSMethod()).to.equal(false)
+    expect(supportsCSSMode()).to.equal(false)
   })
 
   it('returns false if CSS line clamp is unsupported', () => {
     cy.stub(window.CSS, 'supports', (property) => property !== '-webkit-line-clamp')
 
-    expect(supportsCSSMethod()).to.equal(false)
+    expect(supportsCSSMode()).to.equal(false)
   })
 })

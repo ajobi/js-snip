@@ -1,7 +1,7 @@
 import { Snip } from '../types'
 import { addObserver, destroyObserver } from '../observer'
 import { getState, hasState, setState, getPublicState, getLines } from '../utils'
-import { snipByCSS, snipByJS } from '../methods'
+import { snipByCSS, snipByJS } from '../modes'
 import { parseOptions } from '../input'
 import { unsnipElement } from './unsnip'
 
@@ -24,11 +24,11 @@ export const snip: Snip = (element, options, onSnipped) => {
     unsnipElement(element)
     const linesBefore = getLines(element)
 
-    if (state.method === 'css') {
+    if (state.mode === 'css') {
       snipByCSS(element, state)
     }
 
-    if (state.method === 'js') {
+    if (state.mode === 'js') {
       snipByJS(element, state)
     }
 
