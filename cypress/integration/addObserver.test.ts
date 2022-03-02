@@ -2,6 +2,7 @@ import { addObserver, destroyObserver } from '../../instrumented/observer'
 import { getState, setState } from '../../instrumented/utils'
 import { getMockState } from './snipByCSS.test'
 
+// TODO: solve ResizeObserver problems in Cypress
 describe('addObserver', () => {
   beforeEach(() => {
     cy.visit('./cypress/tests/paragraph-single.html')
