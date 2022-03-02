@@ -132,8 +132,9 @@
     methods: {
       snip: function () {
         const paragraph = document.querySelector('#paragraph')
-        JsSnip.snip(paragraph, { mode: this.mode, lines: this.lines }, (newState) => {
-          this.hasEllipsis = newState.hasEllipsis
+        const vm = this
+        JsSnip.snip(paragraph, { mode: this.mode, lines: this.lines }, function(newState) {
+          vm.hasEllipsis = newState.hasEllipsis
         })
       },
       unsnip: function () {
