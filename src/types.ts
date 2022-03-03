@@ -11,12 +11,12 @@ export interface SnipState {
   hasEllipsis: boolean
 }
 
+export interface OnSnipped {
+  (newState: Readonly<SnipState>, oldState: Readonly<SnipState>): void
+}
+
 export interface Snip {
-  (
-    element: HTMLElement,
-    options?: Partial<Readonly<SnipOptions>>,
-    onSnipped?: (newState: Readonly<SnipState>, oldState: Readonly<SnipState>) => void
-  ): void
+  (element: HTMLElement, options?: Partial<Readonly<SnipOptions>>, onSnipped?: OnSnipped): void
 }
 
 export interface Unsnip {
