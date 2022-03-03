@@ -29,22 +29,35 @@ npm install js-snip
 yarn add js-snip
 ```
 
+## Core API
+
+```typescript
+export interface Snip {
+  (element: HTMLElement, options?: Partial<Readonly<SnipOptions>>, onSnipped?: OnSnipped): void
+}
+
+export interface Unsnip {
+  (element: HTMLElement): void
+}
+```
+
 ## Usage
 
 ```typescript
 import { snip, unsnip } from 'js-snip'
 
-// element to be snipped
-const element = document.querySelector('p')
+// minimal example
+snip(element)
 
-const options = {
-  // your snipping options
-}
+// with options
+snip(element, { lines: 3 })
 
-// snipping the element
-snip(element, options, (newState, oldState) => {
-  // optional "onSnipped" callback code
-  console.log(newState, oldState)
+// with several options
+snip(element, { lines: 3, mode: 'js', midWord: false })
+
+// with options and callback
+snip(element, { lines: 3 }, (newState, oldState) => { 
+  // ...
 })
 
 // unsnipping the element
@@ -55,22 +68,38 @@ unsnip(element)
 
 ```typescript
 export interface SnipOptions {
-  mode?: 'css' | 'js'
-  lines?: number
-  ellipsis?: string
-  midWord?: boolean
+  mode: 'css' | 'js'
+  lines: number
+  ellipsis: string
+  midWord: boolean
+}
+
+// your options will get merged with the defaults
+export const defaultOptions: Readonly<SnipOptions> = {
+  mode: 'css',
+  lines: 3,
+  ellipsis: '.\u200A.\u200A.',
+  midWord: true,
 }
 ```
 
-## Callback
+## State
+
+Each snipped element has an internal state:
 
 ```typescript
 export interface SnipState {
   hasEllipsis: boolean
 }
+```
 
-// signature of the callback 
-(newState: Readonly<SnipState>, oldState: Readonly<SnipState>) => void
+## Callback
+Callback will be executed immediately after the initial snipping and after each subsequent snipping (after resize etc.). It allows you to react to state changes:
+
+```typescript
+export interface OnSnipped {
+  (newState: Readonly<SnipState>, oldState: Readonly<SnipState>): void
+}
 ```
 
 ## How it works
