@@ -9,7 +9,7 @@ export const addObserver = (element: HTMLElement, onResize?: () => void): void =
       const state = getState(element)
       if (element.clientWidth !== state.prevWidth || element.clientHeight !== state.prevHeight) {
         onResize()
-        const newState = { ...getState(element) }
+        const newState = { ...state }
         newState.prevWidth = element.clientWidth
         newState.prevHeight = element.clientHeight
         setState(element, newState)
