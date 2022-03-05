@@ -37,10 +37,9 @@ export const snip: Snip = (element, options, onSnipped) => {
       hasEllipsis: getLines(element) < linesBefore,
     })
 
-    const newState = getPublicState(element)
-
     // TODO: add a test for undefined on snipped
     if (onSnipped) {
+      const newState = getPublicState(element)
       onSnipped(newState, oldState)
     }
   }
