@@ -105,7 +105,7 @@ export interface OnSnipped {
 ## How it works
 
 - **CSS** mode is based on the `-webkit-line-clamp`.
-- **JavaScript** mode is based on the progressive cutting of the element's `textContent` in a loop.
+- **JavaScript** mode works by cutting the element's `textContent` in a loop until the content fits into the given number of lines.
 
 *Note: CSS mode is faster (preferred), but does not work in older browsers / in all situations (f.e. does not work in IE11, when you need the text to flow around a floated element, or when you want a custom ellipsis).*
 
