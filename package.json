@@ -15,7 +15,6 @@
     "test": "yarn test:run && yarn coverage && yarn es-check",
     "instrument": "nyc instrument src instrumented",
     "coverage": "nyc report --reporter=text --reporter=text-summary",
-    "coveralls": "npx nyc report --reporter=text-lcov | coveralls",
     "prepare": "yarn build"
   },
   "main": "dist/index.js",
@@ -33,7 +32,6 @@
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
-    "coveralls": "^3.1.0",
     "cypress": "^9.4.1",
     "es-check": "^6.1.1",
     "eslint": "^7.25.0",
