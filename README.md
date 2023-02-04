@@ -70,6 +70,7 @@ export interface SnipOptions {
   lines: number
   ellipsis: string
   midWord: boolean
+  textContent: string
 }
 
 // your options will get merged with the defaults
@@ -78,6 +79,7 @@ export const defaultOptions: Readonly<SnipOptions> = {
   lines: 3,
   ellipsis: '.\u200A.\u200A.',
   midWord: true,
+  textContent: null,
 }
 ```
 

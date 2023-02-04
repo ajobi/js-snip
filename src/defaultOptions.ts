@@ -5,4 +5,5 @@ export const defaultOptions: Readonly<SnipOptions> = {
   lines: 3,
   ellipsis: '.\u200A.\u200A.',
   midWord: true,
+  textContent: null,
 }

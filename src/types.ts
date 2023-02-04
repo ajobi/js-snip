@@ -5,6 +5,7 @@ export interface SnipOptions {
   lines: number
   ellipsis: string
   midWord: boolean
+  textContent: string
 }
 
 export interface SnipState {
