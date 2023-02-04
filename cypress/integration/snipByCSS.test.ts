@@ -6,6 +6,7 @@ import { ElementState } from '../../instrumented/utils/elementState'
 
 export const getMockState = (paragraph: HTMLElement, options: Partial<SnipOptions>): ElementState => ({
   fullText: options.textContent || paragraph.textContent,
+  originalText: paragraph.textContent,
   ...parseOptions(options),
   hasEllipsis: false,
 })

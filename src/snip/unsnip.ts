@@ -5,7 +5,7 @@ import { deleteState, getState } from '../utils'
 export const unsnipElement: Unsnip = (element) => {
   const state = getState(element)
 
-  element.textContent = state?.fullText ?? element.textContent
+  element.textContent = state?.originalText ?? element.textContent
   element.style.display = ''
   element.style.webkitLineClamp = ''
   element.style.webkitBoxOrient = ''
