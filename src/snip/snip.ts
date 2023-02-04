@@ -14,7 +14,7 @@ export const snip: Snip = (element, options, onSnipped) => {
     ...state,
     ...parseOptions(options),
     hasEllipsis: isFirstSnip ? false : state?.hasEllipsis,
-    fullText: isFirstSnip ? element.textContent : state?.fullText,
+    fullText: options.textContent ? options.textContent : isFirstSnip ? element.textContent : state?.fullText,
   })
 
   const applySnipping = (): void => {
