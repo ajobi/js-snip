@@ -17,6 +17,10 @@ describe('parseOptions', () => {
       ...defaultOptions,
       ellipsis: 'zzz',
     })
+    expect(parseOptions({ textContent: 'text' })).to.deep.equal({
+      ...defaultOptions,
+      textContent: 'text',
+    })
     expect(parseOptions({ mode: 'js', lines: 4 })).to.deep.equal({
       ...defaultOptions,
       mode: 'js',
@@ -34,6 +38,7 @@ describe('parseOptions', () => {
       ...defaultOptions,
     })
     expect(parseOptions({ ellipsis: {} })).to.deep.equal({ ...defaultOptions })
+    expect(parseOptions({ textContent: 123 })).to.deep.equal({ ...defaultOptions, textContent: '123' })
   })
 
   it('returns default options for non object value', () => {
