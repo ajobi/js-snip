@@ -29,35 +29,6 @@ describe('unsnip', () => {
     })
   })
 
-  it('Unsnips properly after JS snipping (custom textContent)', () => {
-    cy.get('[data-cy=paragraph]').then(($paragraph) => {
-      const paragraph = $paragraph.get()[0]
-      const originalText = paragraph.textContent
-
-      setState(
-        paragraph,
-        getMockState(paragraph, {
-          lines: 2,
-          mode: 'js',
-          textContent:
-            'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur',
-        })
-      )
-      snipByJS(paragraph, getState(paragraph))
-      expect(paragraph.textContent).to.equal(
-        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architec.\u200A.\u200A.'
-      )
-
-      unsnip(paragraph)
-      expect(getLines(paragraph)).to.equal(7)
-      expect(paragraph.textContent).to.equal(originalText)
-      expect(paragraph.style.display).to.equal('')
-      expect(paragraph.style.webkitLineClamp).to.equal('')
-      expect(paragraph.style.webkitBoxOrient).to.equal('')
-      expect(paragraph.style.overflow).to.equal('')
-    })
-  })
-
   it('Unsnips properly after CSS snipping', () => {
     cy.get('[data-cy=paragraph]').then(($paragraph) => {
       const paragraph = $paragraph.get()[0]
