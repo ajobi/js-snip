@@ -1,6 +1,6 @@
 import { getLines, unsnip } from '../../instrumented'
 import { snipByCSS, snipByJS } from '../../instrumented/modes'
-import { getMockState } from './snipByCSS.test'
+import { getMockState } from './snipByCSS.cy'
 import { getState, setState } from '../../instrumented/utils'
 
 describe('unsnip', () => {

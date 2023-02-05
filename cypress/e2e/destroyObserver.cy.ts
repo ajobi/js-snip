@@ -1,6 +1,6 @@
 import { addObserver, destroyObserver } from '../../instrumented/observer'
 import { getState, setState } from '../../instrumented/utils'
-import { getMockState } from './snipByCSS.test'
+import { getMockState } from './snipByCSS.cy'
 
 describe('addObserver', () => {
   beforeEach(() => {

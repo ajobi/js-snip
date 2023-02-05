@@ -1,5 +1,5 @@
 import { snipByJS } from '../../instrumented/modes'
-import { getMockState } from './snipByCSS.test'
+import { getMockState } from './snipByCSS.cy'
 
 describe('snipByJS', () => {
   beforeEach(() => {
