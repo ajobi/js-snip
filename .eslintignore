@@ -2,3 +2,4 @@ dist
 instrumented
 docs/index.js
 docs/polyfill
+docs/vue2.min.js
