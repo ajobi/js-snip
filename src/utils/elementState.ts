@@ -5,7 +5,6 @@ export interface ElementState extends SnipOptions, SnipState {
   prevHeight?: number
   observer?: ResizeObserver
   fullText?: string
-  originalText?: string
 }
 
 const elementMap: WeakMap<HTMLElement, ElementState> = new WeakMap()
