@@ -4,11 +4,15 @@ import { parseOptions } from '../../instrumented/input'
 import { SnipOptions } from '../../instrumented/types'
 import { ElementState } from '../../instrumented/utils/elementState'
 
-export const getMockState = (paragraph: HTMLElement, options: Partial<SnipOptions>): ElementState => ({
-  fullText: options.textContent || paragraph.textContent,
-  ...parseOptions(options),
-  hasEllipsis: false,
-})
+export const getMockState = (paragraph: HTMLElement, options: Partial<SnipOptions>): ElementState => {
+  const parsedOptions = parseOptions(options)
+
+  return {
+    hasEllipsis: false,
+    ...parsedOptions,
+    fullText: parsedOptions.textContent || paragraph.textContent,
+  }
+}
 
 describe('snipByCSS', () => {
   beforeEach(() => {

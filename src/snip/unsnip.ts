@@ -14,7 +14,6 @@ export const unsnipElement: Unsnip = (element) => {
 
 export const unsnip: Unsnip = (element) => {
   unsnipElement(element)
-
   destroyObserver(element)
   deleteState(element)
 }

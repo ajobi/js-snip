@@ -9,12 +9,17 @@ import { unsnipElement } from './unsnip'
 export const snip: Snip = (element, options, onSnipped) => {
   const isFirstSnip = !hasState(element)
   const state = getState(element)
+  const parsedOptions = parseOptions(options)
 
   setState(element, {
     ...state,
-    ...parseOptions(options),
+    ...parsedOptions,
     hasEllipsis: isFirstSnip ? false : state?.hasEllipsis,
-    fullText: options.textContent ? options.textContent : isFirstSnip ? element.textContent : state?.fullText,
+    fullText: parsedOptions.textContent
+      ? parsedOptions.textContent
+      : isFirstSnip
+      ? element.textContent
+      : state?.fullText,
   })
 
   const applySnipping = (): void => {
